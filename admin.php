@@ -1,13 +1,4 @@
-<?php
-
-session_start();
-
-include("connection.php");
-include("functions.php");
-$user_data=check_login($con);
-if($user_data['acnt_type']!='a' )
-  header("Location: login.php");
-?>
+ 
 
 
 
@@ -53,7 +44,7 @@ https://templatemo.com/tm-574-mexant
               <div class="col-12">
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
+                      <a href="admin.html" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>
                       <!-- ***** Logo End ***** -->
@@ -109,35 +100,44 @@ https://templatemo.com/tm-574-mexant
   <footer>
     <div class="container">
       <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <a href="view_users.php"><div class="square">
                 <h3><i class="fa fa-user" aria-hidden="true"></i>
                 <br> User <br> Accounts</h3>
                 </a>
             </div>
             </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <a href="add_admin.php"><div class="square">
                 <h3><i class="fa fa-user" aria-hidden="true"></i>
                 <br> Admin <br> Accounts</h3>
                 </a>
         </div>
       </div>
-      <div class="col-lg-3">
+      <div class="col-lg-4">
         <a href="astro_accnt.php"><div class="square">
             <h3><i class="fa fa-user" aria-hidden="true"></i>
             <br> Astrologer <br> Accounts</h3>
             </a>
     </div>
-  </div>
-  <div class="col-lg-3">
-    <a href="add_astro.php"><div class="square">
-        <h3><i class="fa fa-user" aria-hidden="true"></i>
-        <br>Add Astrologer</h3><br><br><br>
-        </a>
-</div>
-</div><br>
     </div>
+    <div class="col-lg-4">
+      <a href="add_astro.php">
+        <div class="square">
+        <h3>
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <br>Add Astrologer
+        </h3>
+        </div>
+      </a>
+    
+
+    </div>
+    <div class="col col-lg-4"><div class="square"><a href="addmin.php"><h3><i class="fa fa-user" aria-hidden="true"></i><br>Add Admin</h3></a></div></div>
+        
+    <div class="col col-lg-4"><div class="square"><a href="addmin.php"><h3><i class="fa fa-user" aria-hidden="true"></i><br>View Feedbacks  </h3></a></div></div>
+
+
     <div class="row">
         <div class="col-lg-12"><br><br>
           <p>Copyright © 2022 Mexant Co., Ltd. All Rights Reserved. 

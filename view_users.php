@@ -10,11 +10,11 @@ $user_data=check_login($con);
 if($user_data['acnt_type']!='a' )
   header("Location: login.php");
 
-  $query="select * from user where acnt_type!='a'";
-  if($res=$con->query($query)){
-
-
-
+  $query1="select * from user where acnt_type!='a' and acnt_type='b'";
+  $query2="select * from user  where acnt_type!='a' and acnt_type='bg'";
+  
+  if(($res1=$con->query($query1))&&($res2=$con->query($query2))){
+    
 ?>
 
 <!DOCTYPE html>
@@ -107,14 +107,60 @@ https://templatemo.com/tm-574-mexant
 
   <section class="top-section">
     <div class="container">
+      <h2 style="text-align:center">Bride Accounts</h2>
       <div class="row"><center>
-        <div class="col-lg-8">
+        <div class="col-lg-9">
+          <br>
           <table class="table table-striped table-bordered table-hover">
             <tr class="table-primary">
               <th class="thead">User Name</th>
               <th class="thead">Email</th>
             </tr>
-            <?php foreach($res as $i){ ?>
+            <?php foreach($res1 as $i){ ?>
+            <tr>
+              <td><?php echo $i['uname'] ?></td>
+              <td><?php echo $i['email'] ?></td>
+            </tr><?php } ?>
+          </table>
+  </center>
+        </div>
+        
+      </div>
+    </div><br><br><br>
+
+    <div class="container">
+      <h2 style="text-align:center">Bride-Groom Accounts</h2>
+      <div class="row"><center>
+        <div class="col-lg-9">
+          <br>
+          <table class="table table-striped table-bordered table-hover">
+            <tr class="table-primary">
+              <th class="thead">User Name</th>
+              <th class="thead">Email</th>
+            </tr>
+            <?php foreach($res2 as $i){ ?>
+            <tr>
+              <td><?php echo $i['uname'] ?></td>
+              <td><?php echo $i['email'] ?></td>
+            </tr><?php } ?>
+          </table>
+  </center>
+        </div>
+        
+      </div>
+    </div>
+<br><br><br>
+    <div class="container">
+      <h2 style="text-align:center">Astrologer Accounts</h2>
+      <div class="row"><center>
+        <div class="col-lg-9">
+          <br>
+          <table class="table table-striped table-bordered table-hover">
+            <tr class="table-primary">
+              <th class="thead">User Name</th>
+              <th class="thead">Email</th>
+            </tr>
+            <?php foreach($res3 as $i){ ?>
             <tr>
               <td><?php echo $i['uname'] ?></td>
               <td><?php echo $i['email'] ?></td>
@@ -127,7 +173,7 @@ https://templatemo.com/tm-574-mexant
     </div>
   </section>  
 
- 
+ <br><br>
 
   <footer>
     <div class="container">
