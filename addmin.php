@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     $user_name=($_POST['username']);
     $psw=($_POST['password']);
     $mail=($_POST['email']);
-    $acnt_type='as';
+    $acnt_type='a';
 
     $query = "SELECT uname FROM user WHERE uname='$user_name'";
     $query2= "SELECT email FROM user WHERE email='$mail'";
@@ -120,7 +120,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <!-- <div class="col-6" class="col-sm-12"> -->
         
         <br><br><br><br><br><br> 
-    <h1> Add Astrologer</h1>
+    <h1> Add Admin</h1>
     <br>
     <form class="from-group"  method="post" action="#">
         <div class="col-6">
