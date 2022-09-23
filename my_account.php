@@ -4,12 +4,13 @@ session_start();
 include("connection.php");
 include("functions.php");
 
+$uid=$_SESSION['uid'];
+$basquery="select rec_id from user where user_id='$uid'";
 
 $query1="select *from details where rec_id='4915'";
 $result=mysqli_query($con,$query1);
 
 if($result && mysqli_num_rows($result) > 0)
-
 	$user_data = mysqli_fetch_assoc($result);
 else 
 echo"Some Error";
