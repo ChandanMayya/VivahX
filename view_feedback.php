@@ -9,6 +9,10 @@ $user_data=check_login($con);
 
 if($user_data['acnt_type']!='a' )
   header("Location: login.php");
+
+  $query1="select * from feedback";
+  if($res1=$con->query($query1)){
+    
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +26,7 @@ if($user_data['acnt_type']!='a' )
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>ADMIN Dashboard</title>
+    <title>View Users</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,12 +52,12 @@ https://templatemo.com/tm-574-mexant
 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
-      <div class="container ">
+      <div class="container">
           <div class="row">
               <div class="col-12">
                   <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
-                      <a href="admin.html" class="logo">
+                      <!-- ***** Logo Start ***** 
+                      <a href="index.html" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>
                       <!-- ***** Logo End ***** -->
@@ -89,7 +93,7 @@ https://templatemo.com/tm-574-mexant
       <div class="row">
         <div class="col-lg-12">
           <div class="header-text">
-            <h2>ADMIN PANEL</h2>
+            <h2>FEEDBACKS</h2>
             <div class="div-dec"></div>
           </div>
         </div>
@@ -97,57 +101,46 @@ https://templatemo.com/tm-574-mexant
     </div>
   </div>
 
-
   <!-- ***** Main Banner Area End ***** -->
+
+  <section class="top-section">
+    <div class="container">
+    <div class="container">
+      <div class="row"><center>
+        <div class="col-lg-9">
+          <br>
+          <table class="table table-striped table-bordered table-hover">
+            <tr class="table-primary">
+              <th class="thead">Feedback ID</th>
+              <th class="thead">Subject</th>
+              <th class="thead">Content</th>
+            </tr>
+            <?php foreach($res1 as $i){ ?>
+            <tr>
+              <td><?php echo $i['feed_id'] ?></td>
+              <td><?php echo $i['title'] ?></td>
+              <td><?php echo $i['content'] ?></td>
+            </tr><?php } ?>
+          </table>
+  </center>
+        </div>
+        
+      </div>
+    </div>
+  </section>  
+
+ <br><br>
 
   <footer>
     <div class="container">
       <div class="row">
-        <div class="col-lg-4">
-            <a href="view_users.php"><div class="square">
-                <h3><i class="fa fa-user" aria-hidden="true"></i>
-                <br> User <br> Accounts</h3>
-                </a>
-            </div>
-            </div>
-        <div class="col-lg-4">
-            <a href="view_admin.php"><div class="square">
-                <h3><i class="fa fa-user" aria-hidden="true"></i>
-                <br> Admin <br> Accounts</h3>
-                </a>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <a href="view_astro.php"><div class="square">
-            <h3><i class="fa fa-user" aria-hidden="true"></i>
-            <br> Astrologer <br> Accounts</h3>
-            </a>
-    </div>
-    </div>
-    <div class="col-lg-4">
-      <a href="add_astro.php">
-        <div class="square">
-        <h3>
-          <i class="fa fa-user" aria-hidden="true"></i>
-          <br>Add Astrologer
-        </h3>
-        </div>
-      </a>
-    
-
-    </div>
-    <div class="col col-lg-4"><div class="square"><a href="addmin.php"><h3><i class="fa fa-user" aria-hidden="true"></i><br>Add Admin</h3></a></div></div>
-        
-    <div class="col col-lg-4"><div class="square"><a href="view_feedback.php"><h3><i class="fa fa-user" aria-hidden="true"></i><br>View Feedbacks  </h3></a></div></div>
-
-
-    <div class="row">
-        <div class="col-lg-12"><br><br>
+        <div class="col-lg-12">
           <p>Copyright © 2022 Mexant Co., Ltd. All Rights Reserved. 
           
           <br>Designed by <a title="CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
         </div>
       </div>
+    </div>
   </footer>
 
   <!-- Scripts -->
@@ -205,32 +198,8 @@ https://templatemo.com/tm-574-mexant
 
       var swiper = new Swiper(".swiper-container", swiperOptions);
     </script>
-    <style>
-        .square {
-    height: 150px;
-    width: 150px;
-    display: block;
-    border-radius: 7%;
-    margin-bottom: 30px;
-    float: left;
-    margin-right: 20px;
-    margin-top: 30px;
-    margin-left: 30px;
-    text-align: center;
-    border: 3px outset #51c5fc;
-    background-color: #8fdbff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transform-style: preserve-3d;
-  }
-  .square:hover{
-    border: 3px outset #5977ff;
-  background: #8fdbff;
-  /*-webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);*/
-  transform: scale(1.1);
-  color: #000000;
-  }
-    </style>
 
   </body>
 </html>
+
+<?php }?>
