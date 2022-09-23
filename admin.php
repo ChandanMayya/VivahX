@@ -1,4 +1,16 @@
- 
+<?php
+
+session_start();
+
+include("connection.php");
+include("functions.php");
+
+$user_data=check_login($con);
+
+if($user_data['acnt_type']!='a' )
+  header("Location: login.php");
+
+  ?>
 
 
 
@@ -39,7 +51,7 @@ https://templatemo.com/tm-574-mexant
 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
-      <div class="container">
+      <div class="container ">
           <div class="row">
               <div class="col-12">
                   <nav class="main-nav">
@@ -87,16 +99,10 @@ https://templatemo.com/tm-574-mexant
       </div>
     </div>
   </div>
-  <div class="container-fluid">
-    <div class="row"></div>
-  </div>
+
 
   <!-- ***** Main Banner Area End ***** -->
-  <div class="container">
-    <div class="row">
-        <h4></h4>
-    </div>
-  </div>
+
   <footer>
     <div class="container">
       <div class="row">
@@ -108,14 +114,14 @@ https://templatemo.com/tm-574-mexant
             </div>
             </div>
         <div class="col-lg-4">
-            <a href="add_admin.php"><div class="square">
+            <a href="view_admin.php"><div class="square">
                 <h3><i class="fa fa-user" aria-hidden="true"></i>
                 <br> Admin <br> Accounts</h3>
                 </a>
         </div>
       </div>
       <div class="col-lg-4">
-        <a href="astro_accnt.php"><div class="square">
+        <a href="view_astro.php"><div class="square">
             <h3><i class="fa fa-user" aria-hidden="true"></i>
             <br> Astrologer <br> Accounts</h3>
             </a>
