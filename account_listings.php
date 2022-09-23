@@ -124,16 +124,21 @@
         <form action="" method="post"> <label for="inp">Enter the username displayed to view account: <input type="text" name="inp" id=""> <input  class="btn btn-success"  type="submit" value="View"> </label></form>
       <?php 
       foreach($res as $i){
+         $recid=$i['rec_id'];
+         $usequery="select qualification,profession from details where rec_id='$recid'";
+         if($useres=$con->query($usequery)){
+            $usrow=mysqli_fetch_assoc($useres);
          
         ?>
         <div class="col-lg-12">
           <div class="service-item">
-          <i class="fas fa-archive"></i>
-            <h4><?php echo $i['uname']  ?></h4>
-            <p><?php  echo $i['rec_id'];?>
-       </p>
+          <i class="fas fa-user"></i>
+            <h4><?php echo $i['uname']  ?></h4><div class="row">
+            <p>Qualification: <?php  echo $usrow['qualification'];?></p>
+            <p>Profession: <?php  echo $usrow['profession'];?>
+       </p></div>
           </div>
-        </div><?php } ?>
+        </div><?php } } ?>
       <!--  <div class="col-lg-6">
           <div class="service-item">
             <i class="fas fa-cloud"></i>
