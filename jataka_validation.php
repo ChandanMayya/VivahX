@@ -1,27 +1,3 @@
-<?php
-
-session_start();
-
-include("connection.php");
-include("functions.php");
-
-$user_data=check_login($con);
-
-if($user_data['acnt_type']!='as' )
-  header("Location: login.php");
-
-  
-if($_SERVER['REQUEST_METHOD'] == "POST")
-{
-  $_SESSION['validation_id']=$_POST['inp-req-id'];
-  header("Location: ");
-}
-
-  $query="select * from astro_req";
-  if($result=$con->query($query)){
-   
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -109,45 +85,7 @@ https://templatemo.com/tm-574-mexant
     </div>
   </div>
 
-
-  <!-- ***** Main Banner Area End ***** -->
-
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-            <table class="table table-light">
-                <tr>
-                  <th>Record ID</th>
-                    <th>BOY</th>
-                    <th>GIRL</th>
-                    <th>Validated</th>
-                </tr>
-                <?php foreach ($result as $i){ 
-                    $uid1=$i['user1'];
-                    $uid2=$i['user2'];
-                     $query2="select uname from user where user_id='$uid1'";
-                     $query3="select uname from user where user_id='$uid2'";
-                     if(($res2=$con->query($query2))&&($res3=$con->query($query3)))
-                     $row2=mysqli_fetch_assoc($res2);
-                     $row3=mysqli_fetch_assoc($res3);
-                ?>
-                <tr>
-                    <td><?php echo $i['req_id']  ?></td>
-                    <td><?php echo $row2['uname']  ?></td>
-                    <td><?php echo $row3['uname']  ?></td>
-                    <td><?php echo $i['validate']  ?></td>
-                </tr>
-                <?php } ?>
-            </table>
-            </div>
-            <form action="">
-                <input type="text" name="inp-req-id" id="">
-                <input type="submit" value="Open">
-            </form>
-       
-
-    <div class="row">
+  <div class="row">
         <div class="col-lg-12"><br><br>
           <p>Copyright © 2022 Mexant Co., Ltd. All Rights Reserved. 
           
@@ -239,4 +177,4 @@ https://templatemo.com/tm-574-mexant
     </style>
 
   </body>
-</html><?php } ?>
+</html>

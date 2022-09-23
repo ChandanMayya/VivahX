@@ -17,6 +17,35 @@ if($result && mysqli_num_rows($result) > 0)
 else 
 echo"Some Error";
 
+if($_SERVER['REQUEST_METHOD'] == "POST")
+    {
+      $uname=$_POST['inpt_uname'];
+      $query = "select user_id from user where uname = '$uname'";
+      if($res=$con->query($query)){
+          $row=mysqli_fetch_assoc($res);
+          $user_id=$row['user_id'];
+          if($_SESSION['acnt_type']='b'){
+               $query5="update astro_req set u1val=1 where user2 = '$user_id' and  user1='$uid'";
+               if($con->query($query5))
+                    header("Location: my_account.php");
+          }
+
+
+       // header("Location: view_details.php");
+      }
+    }
+
+if($_SESSION['acnt_type']='b'){
+     $query2="select * from astro_req where user1 IN ('$uid')";
+     $query4="select * from astro_req where user1 IN ('$uid') and u1val=0";
+     $query6="select * from astro_req where user1 IN ('uid') and u1val=1 and u2val=1";
+}else{
+     $query2="select * from astro_req where user2 IN ('$uid')";
+     $query4="select * from astro_req where user2 IN ('$uid') and u0val=0";
+     $query6="select * from astro_req where user2 IN ('uid') and u1val=1 and u2val=1";
+}
+if(($result2=$con->query($query2))&&($result4=$con->query($query4))&&($result6=$con->query($query6))){
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -229,8 +258,8 @@ https://templatemo.com/tm-574-mexant
                               </div>
                           </div>
                           <div class="container">
-                              <div class="table-responsive">
-                                   <table class="table table-primary">
+                              <div class="table-responsive"><br><h4>Requests Sent</h4>
+                                   <table class="table table-primary"><br>
                                         <thead>
                                              <tr>
                                                   <th scope="col">User Name</th>
@@ -239,21 +268,93 @@ https://templatemo.com/tm-574-mexant
                                              </tr>
                                         </thead>
                                         <tbody>
+                                             <?php foreach($result2 as $i){ 
+                                                  if($_SESSION['acnt_type']='b')
+                                                       $itrationID=$i['user2'];
+                                                  else
+                                                       $itrationID=$i['user1'];
+                                                  $query3="select uname from user where user_id='$itrationID'";
+                                                  if($result3=$con->query($query3)){
+                                                       $row=mysqli_fetch_assoc($result3);
+                                             ?>
                                              <tr class="">
-                                                  <td scope="row">R1C1</td>
-                                                  <td>R1C2</td>
-                                                  <td>R1C3</td>
+                                                  <td scope="row"><?php echo $row['uname'] ?></td>
+                                                  <td><?php if($_SESSION['acnt_type']='b') echo $i['u2val']; else  echo $i['u1val'];?></td>
+                                                  <td><?php echo $i['validate'];  ?></td>
                                              </tr>
-                                             <tr class="">
-                                                  <td scope="row">Item</td>
-                                                  <td>Item</td>
-                                                  <td>Item</td>
-                                             </tr>
+                                             <?php } } ?>
                                         </tbody>
                                    </table>
                               </div>
                               
                           </div>
+                          <div class="container">
+                              <div class="table-responsive"><br><h4>Connected</h4>
+                                   <table class="table table-primary"><br>
+                                        <thead>
+                                             <tr>
+                                                  <th scope="col">User Name</th>
+                                                  <th scope="col">Validated</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                             <?php foreach($result6 as $i){ 
+                                                  if($_SESSION['acnt_type']='b')
+                                                       $itrationID=$i['user2'];
+                                                  else
+                                                       $itrationID=$i['user1'];
+                                                  $query3="select uname from user where user_id='$itrationID'";
+                                                  if($result3=$con->query($query3)){
+                                                       $row=mysqli_fetch_assoc($result3);
+                                             ?>
+                                             <tr class="">
+                                                  <td scope="row"><?php echo $row['uname'] ?></td>
+                                                  <td><?php echo $i['validate'];  ?></td>
+                                             </tr>
+                                             <?php } } ?>
+                                        </tbody>
+                                   </table>
+                              </div>
+                              
+                          </div>
+                          <div class="container">
+                              <div class="table-responsive"><br><h4>Requests Received</h4>
+                                   <table class="table table-primary"><br>
+                                        <thead>
+                                             <tr>
+                                                  <th scope="col">User Name</th>
+                                                  <th scope="col">Accept</th>
+                                                  <th scope="col">Validated</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                             <?php foreach($result4 as $i){ 
+                                                  if($_SESSION['acnt_type']='b')
+                                                       $itrationID=$i['user2'];
+                                                  else
+                                                       $itrationID=$i['user1'];
+                                                  $query3="select uname from user where user_id='$itrationID'";
+                                                  if($result3=$con->query($query3)){
+                                                       $row=mysqli_fetch_assoc($result3);
+                                             ?>
+                                             <tr class="">
+                                                  <td scope="row"><?php echo $row['uname'] ?></td>
+                                                  <td><?php if($_SESSION['acnt_type']='b') echo $i['u1val']; else  echo $i['u2val'];?></td>
+                                                  <td><?php echo $i['validate'];  ?></td>
+                                             </tr>
+                                             <?php } } ?>
+                                        </tbody>
+                                   </table>
+                                   <form action="" method="post">
+                                        <label for="submit">Type the user name displayed in requests received to accept the request and pass it for validation
+                                             <input type="text" name="inpt_uname" id="">
+                                             <input type="submit" value="Accept" class="btn btn-success">
+                                        </label>
+                                   </form>
+                              </div>
+                              
+                          </div>
+
        
                                </strong>
                          </p>
@@ -273,4 +374,4 @@ https://templatemo.com/tm-574-mexant
    </footer>
 
 </body>
-</html> <?php } ?>
+</html> <?php }} ?>
