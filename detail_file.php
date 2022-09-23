@@ -27,22 +27,30 @@ function fileUpload () {
 include("connection.php");
 //include("functions.php");
 
-    $recid=$_SESSION['recid'];
+    $rec_id=$_SESSION['recid'];
+    $uid=$_SESSION['uid'];
 
 $target_dir = "userupolads/document/";
 $file_name = $_FILES['csv_file']['name'];
-
 $file_name2=$_FILES['csv_file1']['name'];
 $file_name3=$_FILES['csv_file2']['name'];
+$file_name4=$_FILES['csv_file3']['name'];
 $file_tmp = $_FILES['csv_file']['tmp_name'];
 $file_tmp1 = $_FILES['csv_file1']['tmp_name'];
 $file_tmp2 = $_FILES['csv_file2']['tmp_name'];
+$file_tmp3 = $_FILES['csv_file3']['tmp_name'];
 
-if ((move_uploaded_file($file_tmp, $target_dir.$file_name))&&((move_uploaded_file($file_tmp1, $target_dir.$file_name2))&&(move_uploaded_file($file_tmp2, $target_dir.$file_name3)))) {
+if ((move_uploaded_file($file_tmp, $target_dir.$file_name))&&(move_uploaded_file($file_tmp1, $target_dir.$file_name2))&&(move_uploaded_file($file_tmp2, $target_dir.$file_name3))&&(move_uploaded_file($file_tmp3, $target_dir.$file_name4))) {
     echo "<h1>File Upload Success</h1>";
-    $sql="update details set face_photo='$file_name',body_photo='$file_name2',aadhar='$file_name2' where rec_id='3813'";
+    $sql="update details set face_photo='$file_name',body_photo='$file_name2',aadhar='$file_name2' where rec_id='$rec_id'";
                 if($con->query($sql)===TRUE){
-                    echo("INSERTED to details");
+                  echo("INSERTED to details");
+
+                  $sql2="update jaataka set document='$file_name4' where user_id='$uid'";
+                  if($con->query($sql2)===TRUE){
+                    echo "Inserted to jataka";
+                  }
+                    
                 }else echo("Fail Again!");
 }
 else {
@@ -145,6 +153,11 @@ else {
                     <br>
                     <input type="file" name="csv_file1">
                 </div><br><br>  
+                <div class="col col-lg-12">
+                    <h5>Jataka Photo</h5>
+                    <br>
+                    <input type="file" name="csv_file3">
+                </div><br><br>
             <div class="col col-lg-12">
                     <h5>Document</h5>
                     <br>
