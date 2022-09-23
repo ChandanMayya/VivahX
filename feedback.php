@@ -10,6 +10,17 @@ $user_data=check_login($con);
 if($user_data['acnt_type']=='a' )
   header("Location: login.php");
 
+  if($_SERVER['REQUEST_METHOD'] == "POST")
+  {
+    $feedid=random_num(4);
+    $userid=$_SESSION['uid'];
+    $sub=$_POST['subject'];
+    $cont=$_POST['message'];
+    $query="INSERT INTO `feedback`(`feed_id`, `title`, `content`, `user_id`) VALUES ('$feedid','$sub','$cont','$userid')";
+    if($res=$con->query($query))
+      header("Location: success.html");
+
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,90 +89,27 @@ if($user_data['acnt_type']=='a' )
   </header>
   <!-- ***** Header Area End ***** -->
 
-  <!-- <div class="page-heading">
+  <div class="page-heading">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="header-text">
-            <h2>Contact Us</h2>
+            <h2>Reach Us!</h2>
             <div class="div-dec"></div>
           </div>
         </div>
-      </div>
+      </div><br><h5 style="color: #ffd3b7;">Feel free to message us</h5>
     </div>
   </div>
-
-  <!-- ***** Main Banner Area End ***** -->
-
-  <!-- <section class="map">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div id="map">
-            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15577.544718493144!2d75.3892616!3d12.55676825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba4f25fa71fbef1%3A0xb36c625679d164cf!2sSullia%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1663673043332!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-hidden="false" ></iframe> -->
-         <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15564.841582773051!2d75.20171639999998!3d12.764844299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba4bd7f1da25969%3A0x552215b98b90e2bf!2sPuttur%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1663672100161!5m2!1sen!2sin" width="1100" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-hidden="false"></iframe>
-            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15564.841582773051!2d75.20171639999998!3d12.764844299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba4bd7f1da25969%3A0x552215b98b90e2bf!2sPuttur%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1663672100161!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
-          <!-- </div>
-        </div>
-        <br> -->
-        <!-- <br>
-        <div class="col-lg-10 offset-lg-1">
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="info-item">
-                <i class="fa fa-envelope"></i>
-                <h4>Email Address</h4>
-                <a href="#">swarnavivaha@gmail.com</a>
-              </div> -->
-            <!-- </div>
-            <div class="col-lg-4">
-              <div class="info-item"> -->
-                <!-- <i class="fa fa-phone"></i>
-                <h4>Phone Number</h4>
-                <a href="#">7556780923</a> -->
-              <!-- </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="info-item">
-                <i class="fa fa-map-marked-alt"></i>
-                <h4>Address</h4>
-                <a href="#">Puttur, Karnataka</a> -->
-              <!-- </div> -->
-            <!-- </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>  -->
 
   <section class="contact-us-form">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-          <div class="section-heading">
-            <h6>Contact Us</h6>
-            <h4>Feel free to message us</h4>
-          </div>
-        </div>
+        
         <div class="col-lg-10 offset-lg-1">
           <form id="contact" action="" method="post">
             <div class="row">
-              <div class="col-lg-6">
-                <fieldset>
-                  <input type="name" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
-                </fieldset>
-              </div>
-              <div class="col-lg-6">
-                <fieldset>
-                  <input type="phone" name="phone" id="phone" placeholder="Your Phone..." autocomplete="on" required>
-                </fieldset>
-              </div>
-              <div class="col-lg-6">
-                <fieldset>
-                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your E-mail..." required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-6">
+              <div class="col-lg-12">
                 <fieldset>
                   <input type="subject" name="subject" id="subject" placeholder="Subject..." autocomplete="on" >
                 </fieldset>
@@ -182,45 +130,6 @@ if($user_data['acnt_type']=='a' )
       </div>
     </div>
   </section>
-
-  <!-- <section class="partners">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-2 col-sm-4 col-6">
-          <div class="item">
-            <img src="assets/images/client-01.png" alt="">
-          </div>
-        </div>
-        <div class="col-lg-2 col-sm-4 col-6">
-          <div class="item">
-            <img src="assets/images/client-01.png" alt="">
-          </div>
-        </div>
-        <div class="col-lg-2 col-sm-4 col-6">
-          <div class="item">
-            <img src="assets/images/client-01.png" alt="">
-          </div>
-        </div>
-        <div class="col-lg-2 col-sm-4 col-6">
-          <div class="item">
-            <img src="assets/images/client-01.png" alt="">
-          </div>
-        </div>
-        <div class="col-lg-2 col-sm-4 col-6">
-          <div class="item">
-            <img src="assets/images/client-01.png" alt="">
-          </div>
-        </div>
-        <div class="col-lg-2 col-sm-4 col-6">
-          <div class="item">
-            <img src="assets/images/client-01.png" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-<br>
-<br>
 <br>
   <footer>
     <div class="container">
