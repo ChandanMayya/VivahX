@@ -1,5 +1,19 @@
 <?php
 
+session_start();
+
+include("connection.php");
+include("functions.php");
+
+$user_data=check_login($con);
+
+if($user_data['acnt_type']!='a' )
+  header("Location: login.php");
+
+  $query="select * from user where acnt_type!='a'";
+  if($res=$con->query($query)){
+
+
 
 ?>
 
@@ -44,7 +58,7 @@ https://templatemo.com/tm-574-mexant
           <div class="row">
               <div class="col-12">
                   <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
+                      <!-- ***** Logo Start ***** 
                       <a href="index.html" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>
@@ -93,9 +107,20 @@ https://templatemo.com/tm-574-mexant
 
   <section class="top-section">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          
+      <div class="row"><center>
+        <div class="col-lg-8">
+          <table class="table table-striped table-bordered table-hover">
+            <tr class="table-primary">
+              <th class="thead">User Name</th>
+              <th class="thead">Email</th>
+            </tr>
+            <?php foreach($res as $i){ ?>
+            <tr>
+              <td><?php echo $i['uname'] ?></td>
+              <td><?php echo $i['email'] ?></td>
+            </tr><?php } ?>
+          </table>
+  </center>
         </div>
         
       </div>
@@ -174,3 +199,5 @@ https://templatemo.com/tm-574-mexant
 
   </body>
 </html>
+
+<?php }?>

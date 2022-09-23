@@ -4,7 +4,9 @@ session_start();
 
 include("connection.php");
 include("functions.php");
-
+$user_data=check_login($con);
+if($user_data['acnt_type']!='a' )
+  header("Location: login.php");
 ?>
 
 
@@ -136,6 +138,13 @@ https://templatemo.com/tm-574-mexant
 </div>
 </div><br>
     </div>
+    <div class="row">
+        <div class="col-lg-12"><br><br>
+          <p>Copyright © 2022 Mexant Co., Ltd. All Rights Reserved. 
+          
+          <br>Designed by <a title="CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+        </div>
+      </div>
   </footer>
 
   <!-- Scripts -->

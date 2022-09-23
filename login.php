@@ -25,11 +25,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         switch($row['acnt_type']){
 
         case 'a': 
-            header("Location: admin.html");
+            header("Location: admin.php");
             break;
 
         case 'as':
-            header("Location: astro_home.html");
+            header("Location: astro_home.php");
             break;
 
         case 'b':
