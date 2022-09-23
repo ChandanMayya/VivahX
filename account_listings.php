@@ -128,7 +128,7 @@
          $usequery="select qualification,profession from details where rec_id='$recid'";
          if($useres=$con->query($usequery)){
             $usrow=mysqli_fetch_assoc($useres);
-         
+
         ?>
         <div class="col-lg-12">
           <div class="service-item">

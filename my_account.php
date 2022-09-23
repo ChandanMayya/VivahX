@@ -3,13 +3,9 @@ session_start();
 
 include("connection.php");
 include("functions.php");
-$view_uname=$_SESSION['runame'];
-$conversionquery="select rec_id from user where uname='$view_uname'";
-if($result=$con->query($conversionquery)){
-     $row=mysqli_fetch_assoc($result);
-     $view_recid=$row['rec_id'];
 
-$query1="select * from details where rec_id='$view_recid'";
+
+$query1="select *from details where rec_id='4915'";
 $result=mysqli_query($con,$query1);
 
 if($result && mysqli_num_rows($result) > 0)
@@ -19,7 +15,6 @@ else
 echo"Some Error";
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +26,7 @@ echo"Some Error";
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>VivahX Details</title>
+    <title>My Account</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -55,9 +50,6 @@ https://templatemo.com/tm-574-mexant
      }
      h2{
           text-align:center;
-     }
-     img{
-          width: 500px;
      }
 </style>
 
@@ -106,7 +98,7 @@ https://templatemo.com/tm-574-mexant
             <div class="row">
               <div class="col-lg-12">
                 <div class="header-text">
-                  <h2>Details</h2>
+                  <h2>My Account</h2>
                   <div class="div-dec"></div>
                 </div>
               </div>
@@ -118,7 +110,6 @@ https://templatemo.com/tm-574-mexant
                     <div class="container border border-success rounded">
                <!-- <div class="col-6"> -->
                     <div class="container col-1">
-                     
                     <?php //echo $user_data['face_photo'];?>
                          </div>
                     <div class="panel-heading">
@@ -194,25 +185,14 @@ https://templatemo.com/tm-574-mexant
                               <h4>Photo</h4>
                          </div>
                          <br>
-                         <div class="row">
                               <div class="panel-body">
-                                   <h6>Face Photo</h6>
-                                   <p>
-                                   <div class="col col-lg-6">
-                                   <img class="img-thumbnail" src="./userupolads/document/<?php echo $user_data['face_photo'] ?>" alt=""></img>
-                                   </p> </div>
-                                        <br>
-                                   <div class="panel-body">
                                    <h6>Body Photo</h6>
                                    <p>
-                                   <div class="col col-lg-6">
-                                   <img class="img-thumbnail" src="./userupolads/document/<?php echo $user_data['body_photo'] ?>" alt=""></img>
-                                   </p> </div>
+                                   <?php echo $user_data['body_photo'];?>
+                                   </p> 
                                         <br>
-                         </div>
-
                               </div>
-                         </div></div>
+                         </div>
                          <br><br>
                          <div class="container border border-success rounded">
                               <div class="panel-heading">
@@ -252,13 +232,6 @@ https://templatemo.com/tm-574-mexant
                     </div> 
                </div>  
          <br><br>
-         <div class="container form-control"><br>
-          <form action="" method="post"><center>
-               <label for="sumbit">If you want to check whether your jayaka matches, the jataka of this person, please press the below button.</label>
-               <br><br>
-               <input type="submit" value="Request" class="btn btn-success"></center><br>
-          </form>
-         </div><br>
  <footer>
      <div class="container">
        <div class="row">
@@ -272,4 +245,4 @@ https://templatemo.com/tm-574-mexant
    </footer>
 
 </body>
-</html> <?php } ?>
+</html> 
