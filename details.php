@@ -7,7 +7,7 @@ include("functions.php");
 $query1 = "SELECT face_photo FROM details WHERE rec_id='$user_name'";
     $runquery1=$con->query($query1);
 */
-$user_name=$_SESSION['user_name'];
+$user_name='kesh'; //$_SESSION['user_name'];
 $query1 = "SELECT details,email,rec_id FROM user WHERE uname='$user_name'";
 $runquery1=$con->query($query1);
 if(mysqli_num_rows($runquery1) != 0){
@@ -22,23 +22,22 @@ if(mysqli_num_rows($runquery1) != 0){
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-    $user_name=$_SESSION['user_name'];
-    $user_id=$_SESSION['uid'];
+    $user_name=$user_name;
+    $user_id='9905';
     $phone=$_POST['phone'];   
-    echo $phone;
 
         $query2 = "SELECT phone FROM details where phone='$phone'";
         $runquery2=$con->query($query2);
         if(mysqli_num_rows($runquery2) == 0){
-          /*  if(($_FILES['fphoto']['size'] > 0)&&($_FILES['bphoto']['size'] > 0)&&($_FILES['aadhar']['size'] > 0)){       
+            if(($_FILES['fphoto']['size'] > 0)&&($_FILES['bphoto']['size'] > 0)&&($_FILES['aadhar']['size'] > 0)){       
                 $target_dir = "userupolads/document/";
                 $file_name1 = $_FILES['fphoto']['name'];
-                $file_tmp1 = $_FILES['fphoto']['tmp_name'];
+              //  $file_tmp1 = $_FILES['fphoto']['name'];
                 $file_name2 = $_FILES['bphoto']['name'];
-                $file_tmp2 = $_FILES['bphoto']['tmp_name'];
+              //  $file_tmp2 = $_FILES['bphoto']['tmp_name'];
                 $file_name3 = $_FILES['aadhar']['name'];
-                $file_tmp3 = $_FILES['aadhar']['tmp_name'];
-                if (move_uploaded_file($file_tmp1, $target_dir.$file_name1)) {
+              //  $file_tmp3 = $_FILES['aadhar']['tmp_name'];
+                if (move_uploaded_file($file_name1, $target_dir)) {
                 echo ("<h1>File1 Upload Success</h1>");
                 if (move_uploaded_file($file_tmp2, $target_dir.$file_name2)) {
                     echo "<h1>File2 Upload Success</h1>";
@@ -46,9 +45,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                         echo "<h1>aadhar Upload Success</h1>";
                         }
                     }
-                }*/
+                 
+                }
                 
-                $recid= random_num(4);
                 $fname=$_POST['fname'];
                 $mname=$_POST['mname'];
                 $lname=$_POST['lname'];
@@ -77,7 +76,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 $data2 = file_get_contents($_FILES['bphoto']['doc2']);
                 $jataka_doc = file_get_contents($_FILES['jataka_doc']['doc2']);
                 $aadhar = file_get_contents($_FILES['aadhar']['aadhar']);*/
-                $stmt4 = "INSERT INTO details(`rec_id`, `fname`, `minit`, `lname`,phone,`aphone`, `aemail`, `address`, `height`, `weight`, `complexion`, `about`, `profession`, `earnings`, `requirement`,`qualification`) VALUES ('$recid','$fname','$mname','$lname','$phone','$aphone','$amail','$addr','$height','$weight','$comp','$about','$profsn','$salary','$requirement','$graduation')";
+                $stmt4 = "INSERT INTO details(`rec_id`, `fname`, `minit`, `lname`,phone,`aphone`, `aemail`, `address`, `height`, `weight`, `complexion`, `about`, `profession`, `earnings`, `requirement`,`qualification`) VALUES ('$rec_id','$fname','$mname','$lname','$phone','$aphone','$amail','$addr','$height','$weight','$comp','$about','$profsn','$salary','$requirement','$graduation')";
                         if($con->query($stmt4)===TRUE){
                             echo("INSERTED to details");
                             $jtk_id= random_num(4);
@@ -87,6 +86,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                                 $fam_id= random_num(4);
                                 $query5="INSERT INTO `family`(`family_id`, `father`, `mother`, `fa_occu`, `mo_occu`, `bro_no`, `sis_no`,user_id) VALUES ('$fam_id','$fname','$mname ','$paoccu','$maoccu','$bro','$sis','$user_id')";
                                 if($con->query($query5)===TRUE){
+                                    $_SESSION['recid']=$rec_id;
                                     echo("INSERTED to family");
                         }else
                             echo("Some error");
@@ -97,7 +97,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 }
 
 
-
+}
 ?>
 
 <!DOCTYPE html>
