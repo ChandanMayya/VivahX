@@ -70,7 +70,7 @@
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li class="scroll-to-section"><a href="index.html">Home</a></li>
+                          <li class="scroll-to-section"><a href="index.php">Home</a></li>
                           <li class="scroll-to-section"><a class="active" href="account_listings.html">Meet People</a></li>
                           <li class="scroll-to-section"><a href="index.html">About</a></li>
                           <li class="has-sub">

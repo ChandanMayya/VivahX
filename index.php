@@ -55,12 +55,10 @@
                               <a href="javascript:void(0)">Pages</a>
                               <ul class="sub-menu">
                                   <li><a href="about-us.html">About Us</a></li>
-                                  <li><a href="our-services.html">Our Services</a></li>
                                   <li><a href="contact-us.html">Contact Us</a></li>
                               </ul>
                           </li>
-                          <li class="scroll-to-section"><a href="#testimonials">Testimonials</a></li>
-                          <li><a href="logout.php"  >Hey <?php echo  $_SESSION['user_name']?> </a></li> 
+                          <li><a href="logout.php">Hey <?php echo  $_SESSION['user_name']?> </a></li> 
                       </ul>        
                       <a class='menu-trigger'>
                           <span>Menu</span>
