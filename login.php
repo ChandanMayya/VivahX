@@ -20,6 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         $row = $result->fetch_assoc();
         $_SESSION['user_name']=$user_name;
         $_SESSION['uid']=$row['user_id'];
+        $_SESSION['acnt_type']=$user_data['acnt_type'];
         //echo $_SESSION['uid'];
         switch($row['acnt_type']){
 

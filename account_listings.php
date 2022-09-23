@@ -1,3 +1,34 @@
+<?php
+
+    include("connection.php");
+    include("functions.php");
+    session_start();
+    
+    $userdata=check_login($con);
+    $username=$_SESSION['user_name'];
+    $acnt_type=$userdata['acnt_type'];
+    echo("ACTYPE:");
+    echo($acnt_type);
+    echo("SESSION:");
+    echo($_SESSION['acnt_type']);
+    $query="select uname,rec_id,email from user where acnt_type NOT IN ('$acnt_type','a','as')";
+    
+    if($res=$con->query($query)){
+      echo "User Fetched!";
+       //$query2="select * from details where rec_id=$i[rec_id]";
+        //if($res=$con->query($query)){
+        //}
+        $row=mysqli_fetch_assoc($res);
+        $recno=count($row);
+        echo $recno;
+        
+      
+    }else{
+      echo "Some Error!";
+    }
+    
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,31 +53,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
 
   </head>
-  <?php
-
-    include("connection.php");
-    include("functions.php");
-
-    $username="kes2";
-    $query="select rec_id,email from user where uname='$username'";
-    
-    if($res=$con->query($query)){
-      echo "User Fetched!";
-      foreach ( $res as $i){
-        echo $i['rec_id'];
-        echo "IN FOR EACH";
-       // $query2="select * from details where rec_id=$i[rec_id]";
-        //if($res=$con->query($query)){
-
-        //}
-      }
-      
-    }else{
-      echo "Some Error!";
-    }
-    
-  ?>
-
+  
 <body>
 
 
@@ -56,7 +63,7 @@
           <div class="row">
               <div class="col-12">
                   <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
+                      <!-- ***** Logo Start ***** 
                       <a href="index.html" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>
@@ -100,25 +107,31 @@
       </div>
     </div>
   </div>
+  
 
   <section class="services" id="listings">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6">
+      <?php
+      foreach($res as $i){
+         
+        ?>
+        <div class="col-lg-12">
           <div class="service-item">
             <i class="fas fa-archive"></i>
-            <h4>User1</h4>
-            <p>Details</p>
+            <h4><?php echo $i['uname']  ?></h4>
+            <p><?php   echo"sep";echo $i['rec_id'];echo "sep";?>
+       </p>
           </div>
-        </div>
-        <div class="col-lg-6">
+        </div><?php } ?>
+      <!--  <div class="col-lg-6">
           <div class="service-item">
             <i class="fas fa-cloud"></i>
             <h4>User2</h4>
             <p>Details</p>
           </div>
-        </div>
-        <div class="col-lg-6">
+        </div>-->
+<!--        <div class="col-lg-6">
           <div class="service-item">
             <i class="fas fa-charging-station"></i>
             <h4>User3</h4>
@@ -146,6 +159,6 @@
             <p>Details</p>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
   </section>

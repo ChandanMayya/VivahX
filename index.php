@@ -49,7 +49,7 @@
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
                           <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                          <li class="scroll-to-section"><a href="account_listings.html">Meet people</a></li>
+                          <li class="scroll-to-section"><a href="account_listings.php">Meet people</a></li>
                           <li class="scroll-to-section"><a href="#about">About</a></li>
                           <li class="has-sub">
                               <a href="javascript:void(0)">Pages</a>
