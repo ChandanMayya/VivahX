@@ -27,7 +27,7 @@ function fileUpload () {
 include("connection.php");
 //include("functions.php");
 
-    $recid='1386';             //$_SESSION['recid'];
+    $recid='3813';             //$_SESSION['recid'];
 
 $target_dir = "userupolads/document/";
 $file_name = $_FILES['csv_file']['name'];
@@ -40,7 +40,7 @@ $file_tmp2 = $_FILES['csv_file2']['tmp_name'];
 
 if ((move_uploaded_file($file_tmp, $target_dir.$file_name))&&((move_uploaded_file($file_tmp1, $target_dir.$file_name2))&&(move_uploaded_file($file_tmp2, $target_dir.$file_name3)))) {
     echo "<h1>File Upload Success</h1>";
-    $sql="INSERT INTO `details`(`rec_id`, `face_photo`,`body_photo`,`aadhar`) VALUES ('$recid','$file_name','$file_name2','$file_name3')";
+    $sql="update details set face_photo='$file_name',body_photo='$file_name2',aadhar='$file_name2' where rec_id='3813'";
                 if($con->query($sql)===TRUE){
                     echo("INSERTED to details");
                 }else echo("Fail Again!");
