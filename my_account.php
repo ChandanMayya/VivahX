@@ -6,10 +6,12 @@ include("functions.php");
 
 $uid=$_SESSION['uid'];
 $basquery="select rec_id from user where user_id='$uid'";
-
-$query1="select *from details where rec_id='4915'";
+if($basresult=$con->query($basquery)){
+     
+$basrow=mysqli_fetch_assoc($basresult);
+$rec_id=$basrow['rec_id'];
+$query1="select *from details where rec_id='$rec_id'";
 $result=mysqli_query($con,$query1);
-
 if($result && mysqli_num_rows($result) > 0)
 	$user_data = mysqli_fetch_assoc($result);
 else 
@@ -226,7 +228,32 @@ https://templatemo.com/tm-574-mexant
                           </div> 
                               </div>
                           </div>
-                          
+                          <div class="container">
+                              <div class="table-responsive">
+                                   <table class="table table-primary">
+                                        <thead>
+                                             <tr>
+                                                  <th scope="col">User Name</th>
+                                                  <th scope="col">Accept</th>
+                                                  <th scope="col">Validated</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                             <tr class="">
+                                                  <td scope="row">R1C1</td>
+                                                  <td>R1C2</td>
+                                                  <td>R1C3</td>
+                                             </tr>
+                                             <tr class="">
+                                                  <td scope="row">Item</td>
+                                                  <td>Item</td>
+                                                  <td>Item</td>
+                                             </tr>
+                                        </tbody>
+                                   </table>
+                              </div>
+                              
+                          </div>
        
                                </strong>
                          </p>
@@ -246,4 +273,4 @@ https://templatemo.com/tm-574-mexant
    </footer>
 
 </body>
-</html> 
+</html> <?php } ?>
