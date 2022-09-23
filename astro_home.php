@@ -6,13 +6,15 @@ include("connection.php");
 include("functions.php");
 
 $user_data=check_login($con);
-if(($user_data['acnt_type']=='a')||($user_data['acnt_type']=='bg'))
+
+if($user_data['acnt_type']!='as' )
   header("Location: login.php");
 
-  $query="select * from user where ";
 
+  $query="select * from astro_req";
+  if($result=$con->query($query)){
+   
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +27,7 @@ if(($user_data['acnt_type']=='a')||($user_data['acnt_type']=='bg'))
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Account</title>
+    <title>Astrologer Dashboard</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -36,6 +38,13 @@ if(($user_data['acnt_type']=='a')||($user_data['acnt_type']=='bg'))
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+<!--
+
+TemplateMo 574 Mexant
+
+https://templatemo.com/tm-574-mexant
+
+-->
 
   </head>
 
@@ -44,12 +53,12 @@ if(($user_data['acnt_type']=='a')||($user_data['acnt_type']=='bg'))
 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
-      <div class="container">
+      <div class="container ">
           <div class="row">
               <div class="col-12">
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
+                      <a href="admin.html" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>
                       <!-- ***** Logo End ***** -->
@@ -85,7 +94,7 @@ if(($user_data['acnt_type']=='a')||($user_data['acnt_type']=='bg'))
       <div class="row">
         <div class="col-lg-12">
           <div class="header-text">
-            <h2>Account</h2>
+            <h2>ASTROLOGER DASHBOARD</h2>
             <div class="div-dec"></div>
           </div>
         </div>
@@ -93,31 +102,46 @@ if(($user_data['acnt_type']=='a')||($user_data['acnt_type']=='bg'))
     </div>
   </div>
 
-  <!-- ***** Main Banner Area End ***** -->
 
-<section>
-    <div class="container">
-        <table >
-            <tr>
-                <th>User Name:</th>
-            </tr>
-            <td>
-                <?php echo $row['uname'];?>
-            </td>
-        </table>   
-    </div>
-</section>
+  <!-- ***** Main Banner Area End ***** -->
 
   <footer>
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
+            <table class="table table-light">
+                <tr>
+                    <th>BOY</th>
+                    <th>GIRL</th>
+                </tr>
+                <?php foreach ($result as $i){ 
+                    $uid1=$i['user1'];
+                    $uid2=$i['user2'];
+                     $query2="select uname from user where user_id='$uid1'";
+                     $query3="select uname from user where user_id='$uid2'";
+                     if(($res2=$con->query($query2))&&($res3=$con->query($query3)))
+                     $row2=mysqli_fetch_assoc($res2);
+                     $row3=mysqli_fetch_assoc($res3);
+                ?>
+                <tr>
+                    <td><?php echo $row2['uname']  ?></td>
+                    <td><?php echo $row3['uname']  ?></td>
+                </tr>
+                <?php } ?>
+            </table>
+            </div>
+            <form action="">
+                <input type="text" name="" id="">
+            </form>
+       
+
+    <div class="row">
+        <div class="col-lg-12"><br><br>
           <p>Copyright © 2022 Mexant Co., Ltd. All Rights Reserved. 
           
           <br>Designed by <a title="CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
         </div>
       </div>
-    </div>
   </footer>
 
   <!-- Scripts -->
@@ -175,6 +199,32 @@ if(($user_data['acnt_type']=='a')||($user_data['acnt_type']=='bg'))
 
       var swiper = new Swiper(".swiper-container", swiperOptions);
     </script>
+    <style>
+        .square {
+    height: 150px;
+    width: 150px;
+    display: block;
+    border-radius: 7%;
+    margin-bottom: 30px;
+    float: left;
+    margin-right: 20px;
+    margin-top: 30px;
+    margin-left: 30px;
+    text-align: center;
+    border: 3px outset #51c5fc;
+    background-color: #8fdbff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform-style: preserve-3d;
+  }
+  .square:hover{
+    border: 3px outset #5977ff;
+  background: #8fdbff;
+  /*-webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);*/
+  transform: scale(1.1);
+  color: #000000;
+  }
+    </style>
 
   </body>
-</html>
+</html><?php } ?>

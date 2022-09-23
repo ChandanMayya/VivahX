@@ -1,9 +1,9 @@
 <?php
 
-    include("connection.php");
-    include("functions.php");
     session_start();
     
+    include("connection.php");
+    include("functions.php");
     $userdata=check_login($con);
     $username=$_SESSION['user_name'];
     $acnt_type=$userdata['acnt_type'];
@@ -26,7 +26,16 @@
     }else{
       echo "Some Error!";
     }
-    
+
+    if($_SERVER['REQUEST_METHOD'] == "POST")
+    {
+      $uname=$_POST['inp'];
+      $query = "select * from user where uname = '$uname'";
+      if(mysqli_num_rows($con->query($query))>0){
+        $_SESSION['runame']=$uname;
+        header("Location: view_details.php");
+      }
+    }
   ?>
 
 <!DOCTYPE html>
@@ -112,15 +121,16 @@
   <section class="services" id="listings">
     <div class="container">
       <div class="row">
-      <?php
+        <form action="" method="post"> <label for="inp">Enter the username displayed to view account: <input type="text" name="inp" id=""> <input  class="btn btn-success"  type="submit" value="View"> </label></form>
+      <?php 
       foreach($res as $i){
          
         ?>
         <div class="col-lg-12">
           <div class="service-item">
-            <i class="fas fa-archive"></i>
+          <i class="fas fa-archive"></i>
             <h4><?php echo $i['uname']  ?></h4>
-            <p><?php   echo"sep";echo $i['rec_id'];echo "sep";?>
+            <p><?php  echo $i['rec_id'];?>
        </p>
           </div>
         </div><?php } ?>

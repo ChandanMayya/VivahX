@@ -7,6 +7,7 @@ include("functions.php");
 
 $user_data=check_login($con);
 
+
 if($user_data['acnt_type']!='a' )
   header("Location: login.php");
 

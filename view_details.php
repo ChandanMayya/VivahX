@@ -3,8 +3,13 @@ session_start();
 
 include("connection.php");
 include("functions.php");
+echo "SEssion:";$view_uname=$_SESSION['runame'];
+$conversionquery="select rec_id from user where uname='$view_uname'";
+if($result=$con->query($conversionquery)){
+     $row=mysqli_fetch_assoc($result);
+     $view_recid=$row['rec_id'];
 
-$query1="select * from details where rec_id='9805'";
+$query1="select * from details where rec_id='$view_recid'";
 $result=mysqli_query($con,$query1);
 
 if($result && mysqli_num_rows($result) > 0)
@@ -245,4 +250,4 @@ https://templatemo.com/tm-574-mexant
    </footer>
 
 </body>
-</html> 
+</html> <?php } ?>
