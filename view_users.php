@@ -1,3 +1,8 @@
+<?php
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +14,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Mexant HTML5 Template - About page</title>
+    <title>View Users</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -76,54 +81,38 @@ https://templatemo.com/tm-574-mexant
       <div class="row">
         <div class="col-lg-12">
           <div class="header-text">
-            <h2>ADMIN PANEL</h2>
+            <h2>View Users</h2>
             <div class="div-dec"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="container-fluid">
-    <div class="row"></div>
-  </div>
 
   <!-- ***** Main Banner Area End ***** -->
-  <div class="container">
-    <div class="row">
-        <h4></h4>
+
+  <section class="top-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          
+        </div>
+        
+      </div>
     </div>
-  </div>
+  </section>  
+
+ 
+
   <footer>
     <div class="container">
       <div class="row">
-        <div class="col-lg-3">
-            <a href="view_users.php"><div class="square">
-                <h3><i class="fa fa-user" aria-hidden="true"></i>
-                <br> User <br> Accounts</h3>
-                </a>
-            </div>
-            </div>
-        <div class="col-lg-3">
-            <a href="add_admin.php"><div class="square">
-                <h3><i class="fa fa-user" aria-hidden="true"></i>
-                <br> Admin <br> Accounts</h3>
-                </a>
+        <div class="col-lg-12">
+          <p>Copyright © 2022 Mexant Co., Ltd. All Rights Reserved. 
+          
+          <br>Designed by <a title="CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
         </div>
       </div>
-      <div class="col-lg-3">
-        <a href="astro_accnt.php"><div class="square">
-            <h3><i class="fa fa-user" aria-hidden="true"></i>
-            <br> Astrologer <br> Accounts</h3>
-            </a>
-    </div>
-  </div>
-  <div class="col-lg-3">
-    <a href="add_astro.php"><div class="square">
-        <h3><i class="fa fa-user" aria-hidden="true"></i>
-        <br>Add Astrologer</h3>
-        </a>
-</div>
-</div>
     </div>
   </footer>
 
@@ -182,32 +171,6 @@ https://templatemo.com/tm-574-mexant
 
       var swiper = new Swiper(".swiper-container", swiperOptions);
     </script>
-    <style>
-        .square {
-    height: 150px;
-    width: 150px;
-    display: block;
-    border-radius: 7%;
-    margin-bottom: 30px;
-    float: left;
-    margin-right: 20px;
-    margin-top: 30px;
-    margin-left: 30px;
-    text-align: center;
-    border: 3px outset #51c5fc;
-    background-color: #8fdbff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transform-style: preserve-3d;
-  }
-  .square:hover{
-    border: 3px outset #5977ff;
-  background: #8fdbff;
-  /*-webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);*/
-  transform: scale(1.1);
-  color: #000000;
-  }
-    </style>
 
   </body>
 </html>
