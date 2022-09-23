@@ -14,7 +14,7 @@ if($user_data['acnt_type']!='as' )
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
   $_SESSION['validation_id']=$_POST['inp-req-id'];
-  header("Location: ");
+  header("Location: jataka_validation.php");
 }
 
   $query="select * from astro_req";
@@ -141,7 +141,7 @@ https://templatemo.com/tm-574-mexant
                 <?php } ?>
             </table>
             </div>
-            <form action="">
+            <form action="" method="POST">
                 <input type="text" name="inp-req-id" id="">
                 <input type="submit" value="Open">
             </form>

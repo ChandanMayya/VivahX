@@ -1,4 +1,22 @@
+<?php
 
+session_start();
+
+include("connection.php");
+include("functions.php");
+
+$req_id=$_SESSION['validation_id'];
+$query1="select * from astro_req where req_id='$req_id'";
+if($result=$con->query($query1)){
+    $row=mysqli_fetch_assoc($result);
+    $user1=$row['user1'];
+    $user2=$row['user2'];
+    $query2="select document from jaataka where user_id='$user1'";
+    $query3="select document from jaataka where user_id='$user2'";
+    if(($result2=$con->query($query2))&&($result3=$con->query($query3))){
+        $row2=mysqli_fetch_assoc($result2);
+        $row3=mysqli_fetch_assoc($result3);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,13 +39,11 @@
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-<!--
-
-TemplateMo 574 Mexant
-
-https://templatemo.com/tm-574-mexant
-
--->
+<style>
+    .iimg{
+        width: 650px;
+    }
+</style>
 
   </head>
 
@@ -77,14 +93,27 @@ https://templatemo.com/tm-574-mexant
       <div class="row">
         <div class="col-lg-12">
           <div class="header-text">
-            <h2>ASTROLOGER DASHBOARD</h2>
+            <h2>Validation Panel</h2>
             <div class="div-dec"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
+<footer>
 
+<div class="container">
+    <div class="row">
+        <div class="col col-lg-6">
+            <h3 style="color: #ffd3b7  ;">Girl's Jataka</h3><br>
+            <img class="img-thumbnail iimg" src="./userupolads/document/<?php echo $row2['document'] ?>" alt=""></img>
+        </div>
+        <div class="col col-lg-6">
+            <h3 style="color: #ffd3b7  ;">Boy's Jataka</h3><br>
+            <img class="img-thumbnail iimg" src="./userupolads/document/<?php echo $row3['document'] ?>" alt=""></img>
+        </div>
+    </div>
+</div>
   <div class="row">
         <div class="col-lg-12"><br><br>
           <p>Copyright © 2022 Mexant Co., Ltd. All Rights Reserved. 
@@ -177,4 +206,4 @@ https://templatemo.com/tm-574-mexant
     </style>
 
   </body>
-</html>
+</html> <?php } } ?>

@@ -5,24 +5,15 @@ session_start();
 include("connection.php");
 include("functions.php");
 
-$user_data=check_login($con);
-if($_SERVER['REQUEST_METHOD'] == "POST")
-{
-  $_SESSION['validation_id']=$_POST['useridd'];
-  header("Location: account_validation.php");
-}
-
-if($user_data['acnt_type']!='a' )
-  header("Location: login.php");
-
-  $query1="select * from user where acnt_type!='a' and acnt_type='b'";
-  $query2="select * from user  where acnt_type!='a' and acnt_type='bg'";
-  
-  
-  if(($res1=$con->query($query1))&&($res2=$con->query($query2))){
-    
+$user_id=$_SESSION['validation_id'];
+$query1="select rec_id from user where user_id='$user_id'";
+if($result=$con->query($query1)){
+    $row=mysqli_fetch_assoc($result);
+    $rec_id=$row['rec_id'];
+    $query2="select aadhar from details where rec_id='$rec_id'";
+    if($result2=$con->query($query2)){
+        $row2=mysqli_fetch_assoc($result2);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +25,7 @@ if($user_data['acnt_type']!='a' )
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>View Users</title>
+    <title>Astrologer Dashboard</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -45,13 +36,11 @@ if($user_data['acnt_type']!='a' )
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-<!--
-
-TemplateMo 574 Mexant
-
-https://templatemo.com/tm-574-mexant
-
--->
+<style>
+    .iimg{
+        width: 850px;
+    }
+</style>
 
   </head>
 
@@ -60,12 +49,12 @@ https://templatemo.com/tm-574-mexant
 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
-      <div class="container">
+      <div class="container ">
           <div class="row">
               <div class="col-12">
                   <nav class="main-nav">
-                      <!-- ***** Logo Start ***** 
-                      <a href="index.html" class="logo">
+                      <!-- ***** Logo Start ***** -->
+                      <a href="admin.html" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>
                       <!-- ***** Logo End ***** -->
@@ -101,84 +90,30 @@ https://templatemo.com/tm-574-mexant
       <div class="row">
         <div class="col-lg-12">
           <div class="header-text">
-            <h2>View Users</h2>
+            <h2>Validation Panel</h2>
             <div class="div-dec"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
+<footer>
 
-  <!-- ***** Main Banner Area End ***** -->
-
-  <section class="top-section">
-    <div class="container">
-      <h2 style="text-align:center">Bride Accounts</h2>
-      <div class="row"><center>
-        <div class="col-lg-9">
-          <br>
-          <table class="table table-striped table-bordered table-hover">
-            <tr class="table-primary">
-              <th class="thead">User Name</th>
-              <th class="thead">Email</th>
-              <th class="thead">Valid</th>
-            </tr>
-            <?php foreach($res1 as $i){ ?>
-            <tr>
-              <td><?php echo $i['uname'] ?></td>
-              <td><?php echo $i['email'] ?></td>
-              <td class="thead"><?php echo $i['validate'] ?></td>
-            </tr><?php } ?>
-          </table>
-  </center>
+<div class="container">
+    <div class="row">
+        <div class="col col-lg-6">
+            <h3 style="color: #ffd3b7  ;">Aadhar Card:</h3><br>
+            <img class="img-thumbnail iimg" src="./userupolads/document/<?php echo $row2['document'] ?>" alt=""></img>
         </div>
-        
-      </div>
-    </div><br><br><br>
-
-    <div class="container">
-      <h2 style="text-align:center">Bride-Groom Accounts</h2>
-      <div class="row"><center>
-        <div class="col-lg-9">
-          <br>
-          <table class="table table-striped table-bordered table-hover">
-            <tr class="table-primary">
-              <th class="thead">User Name</th>
-              <th class="thead">Email</th>
-              <th class="thead">Valid</th>
-            </tr>
-            <?php foreach($res2 as $i){ ?>
-            <tr>
-              <td><?php echo $i['uname'] ?></td>
-              <td><?php echo $i['email'] ?></td>
-              <td class="thead"><?php echo $i['validate'] ?></td>
-            </tr><?php } ?>
-          </table><br>
-          <form action="" method="post">
-            <input type="text" name="useridd">
-            <input type="submit" value="View Document" class="btn btn-secondary">
-          </form>
-  </center>
-        </div>
-        
-      </div>
     </div>
-<br><br><br>
-    
-  </section>  
-
- <br><br>
-
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
+</div>
+  <div class="row">
+        <div class="col-lg-12"><br><br>
           <p>Copyright © 2022 Mexant Co., Ltd. All Rights Reserved. 
           
           <br>Designed by <a title="CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
         </div>
       </div>
-    </div>
   </footer>
 
   <!-- Scripts -->
@@ -236,8 +171,32 @@ https://templatemo.com/tm-574-mexant
 
       var swiper = new Swiper(".swiper-container", swiperOptions);
     </script>
+    <style>
+        .square {
+    height: 150px;
+    width: 150px;
+    display: block;
+    border-radius: 7%;
+    margin-bottom: 30px;
+    float: left;
+    margin-right: 20px;
+    margin-top: 30px;
+    margin-left: 30px;
+    text-align: center;
+    border: 3px outset #51c5fc;
+    background-color: #8fdbff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform-style: preserve-3d;
+  }
+  .square:hover{
+    border: 3px outset #5977ff;
+  background: #8fdbff;
+  /*-webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);*/
+  transform: scale(1.1);
+  color: #000000;
+  }
+    </style>
 
   </body>
-</html>
-
-<?php }?>
+</html> <?php } } ?>
