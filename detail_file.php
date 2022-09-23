@@ -27,7 +27,7 @@ function fileUpload () {
 include("connection.php");
 //include("functions.php");
 
-    $recid='3813';             //$_SESSION['recid'];
+    $recid=$_SESSION['recid'];
 
 $target_dir = "userupolads/document/";
 $file_name = $_FILES['csv_file']['name'];
