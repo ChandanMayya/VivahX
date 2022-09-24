@@ -38,13 +38,7 @@ if($user_data['acnt_type']!='a' )
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-<!--
 
-TemplateMo 574 Mexant
-
-https://templatemo.com/tm-574-mexant
-
--->
 
   </head>
 
@@ -57,7 +51,7 @@ https://templatemo.com/tm-574-mexant
           <div class="row">
               <div class="col-12">
                   <nav class="main-nav">
-                      <!-- ***** Logo Start ***** 
+                      <!-- ***** Logo Start ***** --->
                       <a href="index.html" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>

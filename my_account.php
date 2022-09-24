@@ -110,7 +110,9 @@ https://templatemo.com/tm-574-mexant
                                       <li><a href="about-us.html">About Us</a></li>
                                       <!-- <li><a href="our-services.html">Our Services</a></li> -->
                                       <li><a href="contact-us.html">Contact Us</a></li>
+                                      
                                   </ul>
+                                  <li><a href="logout.php">Logout</a></li>
                               </li>
                               <!-- <li class="scroll-to-section"><a href="index.html">Testimonials</a></li> -->
                               <!-- <li><a href="contact-us.html">Contact Support</a></li>  -->
@@ -218,9 +220,17 @@ https://templatemo.com/tm-574-mexant
                          </div>
                          <br>
                               <div class="panel-body">
+                                   <h6>Face Photo</h6>
+                                   <p><br>
+                                  <img src="./userupolads/document/<?php echo $user_data['face_photo'];?>" alt=""> 
+                                   </p> 
+                                        <br>
+                              </div>
+                         <br>
+                              <div class="panel-body">
                                    <h6>Body Photo</h6>
-                                   <p>
-                                   <?php echo $user_data['body_photo'];?>
+                                   <p><br>
+                                  <img src="./userupolads/document/<?php echo $user_data['body_photo'];?>" alt=""> 
                                    </p> 
                                         <br>
                               </div>
@@ -249,8 +259,6 @@ https://templatemo.com/tm-574-mexant
                                         <?php echo $user_data['requirement'];?>
                                          </p> 
                                                   <br>
-                        
-                        
                               <!-- </div> -->
                               <!-- </div> -->
                                </div> 
@@ -349,8 +357,7 @@ https://templatemo.com/tm-574-mexant
                                         <label for="submit">Type the user name displayed in requests received to accept the request and pass it for validation
                                              <input type="text" name="inpt_uname" id="">
                                              <input type="submit" value="Accept" class="btn btn-success"><br>
-                                             <div><br><br><ul class="nav">
-                              <li class="scroll-to-section"><a href="logout.php" class="btn btn-primary">Logout</a></li></div>
+                                            
                                         </label>
                                    </form>
                               </div>
@@ -359,9 +366,15 @@ https://templatemo.com/tm-574-mexant
                           
        
                                </strong>
-                         </p>
-                    </div> 
+                                                  </p><br><br>
+                                                  </div> 
                </div>  
+                         <p style="text-align:center ;">In case you want to change the data, with the valid reason, please mail us.. <br> We will surely reply with the responce to move forward.</p>
+<center><br><br>
+<a href="logout.php"> <input type="button" value="Logout" class="btn btn-danger"></a>
+</center>
+
+                    
                <br><br>
  <footer>
      <div class="container">
@@ -369,7 +382,7 @@ https://templatemo.com/tm-574-mexant
          <div class="col-lg-12">
            <p>Copyright © 2022 VivahX Co., Ltd. All Rights Reserved. 
            
-           <br>Designed by <a title="CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">Parinaya</a></p>
+           <br>Designed by <a  rel="sponsored" href="#">Parinaya</a></p>
          </div>
        </div>
      </div>
