@@ -7,6 +7,7 @@ include("functions.php");
 
 $user_data=check_login($con);
 
+
 if(($user_data['acnt_type']=='a')&&($user_data['acnt_type']=='as'))
   header("Location: login.php");
 

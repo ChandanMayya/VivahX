@@ -7,6 +7,10 @@
     $userdata=check_login($con);
     $username=$_SESSION['user_name'];
     $acnt_type=$userdata['acnt_type'];
+    $user_id=$userdata['user_id'];
+
+    if(!(check_verified($con,$user_id)))
+        header("Location: accountverification.html");
     
     $query="select uname,rec_id,email from user where acnt_type NOT IN ('$acnt_type','a','as')";
     

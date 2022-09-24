@@ -8,9 +8,7 @@
     $userdata=check_login($con);
     $user_id=$userdata['user_id'];
 
-    if(check_verified($con,$user_id))
-        header("Location: success.html");
-    else    
+    if(!(check_verified($con,$user_id)))
         header("Location: accountverification.html");
 
 ?>

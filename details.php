@@ -4,6 +4,9 @@ session_start();
 include("connection.php");
 include("functions.php");
 
+$userdata=check_login($con);
+$user_id=$userdata['user_id'];
+
 $user_name=$_SESSION['user_name'];
 $query1 = "SELECT details,email,rec_id FROM user WHERE uname='$user_name'";
 $runquery1=$con->query($query1);
