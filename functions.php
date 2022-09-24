@@ -6,6 +6,7 @@ function check_login($con)
 	if(isset($_SESSION['uid']))
 	{
 
+		
 		$id = $_SESSION['uid'];
 		$query = "select * from user where user_id = '$id' limit 1";
 
@@ -17,9 +18,9 @@ function check_login($con)
 			return $user_data;
 		}else echo "Selection!";
 	}
-	echo $_SESSION['uid'];
+	//echo $_SESSION['uid'];
 	//redirect to login
-	//header("Location: login.php");
+	header("Location: login.php");
 	die;
 
 }

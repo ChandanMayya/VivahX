@@ -68,21 +68,21 @@ https://templatemo.com/tm-574-mexant
                       <a href="index.html" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>
-                      <!-- ***** Logo End ***** -->
+                       ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li class="scroll-to-section"><a href="index.html">Home</a></li>
-                          <li class="scroll-to-section"><a href="index.html">Services</a></li>
-                          <li class="scroll-to-section"><a href="index.html">About</a></li>
+                          <li class="scroll-to-section"><a href="index.php">Home</a></li>
+                          <!-- <li class="scroll-to-section"><a href="index.html">Services</a></li> -->
+                          <li class="scroll-to-section"><a href="about-us.html">About</a></li>
                           <li class="has-sub">
                               <a href="javascript:void(0)">Pages</a>
                               <ul class="sub-menu">
                                   <li><a href="about-us.html">About Us</a></li>
-                                  <li><a href="our-services.html">Our Services</a></li>
+                                  <!-- <li><a href="our-services.html">Our Services</a></li> -->
                                   <li><a href="contact-us.html">Contact Us</a></li>
                               </ul>
                           </li>
-                          <li class="scroll-to-section"><a href="index.html">Testimonials</a></li>
+                          <!-- <li class="scroll-to-section"><a href="index.html">Testimonials</a></li> -->
                           <li><a href="contact-us.html">Contact Support</a></li> 
                       </ul>        
                       <a class='menu-trigger'>

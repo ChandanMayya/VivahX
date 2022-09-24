@@ -14,9 +14,9 @@ if(($user_data['acnt_type']=='a')&&($user_data['acnt_type']=='as'))
 
     if (($_FILES['csv_file']['size'] > 0)&&($_FILES['csv_file1']['size'] > 0)&&($_FILES['csv_file2']['size'] > 0))
     {
-        echo "<p>".$_FILES['csv_file']['name']." => file input successfull</p>";
+        /*echo "<p>".$_FILES['csv_file']['name']." => file input successfull</p>";
         echo "<p>".$_FILES['csv_file1']['name']." => file input successfull</p>";
-        echo "<p>".$_FILES['csv_file2']['name']." => file input successfull</p>";
+        echo "<p>".$_FILES['csv_file2']['name']." => file input successfull</p>";*/
 
         fileUpload();
     }
@@ -41,20 +41,22 @@ $file_tmp2 = $_FILES['csv_file2']['tmp_name'];
 $file_tmp3 = $_FILES['csv_file3']['tmp_name'];
 
 if ((move_uploaded_file($file_tmp, $target_dir.$file_name))&&(move_uploaded_file($file_tmp1, $target_dir.$file_name2))&&(move_uploaded_file($file_tmp2, $target_dir.$file_name3))&&(move_uploaded_file($file_tmp3, $target_dir.$file_name4))) {
-    echo "<h1>File Upload Success</h1>";
+    // echo "<h1>File Upload Success</h1>";
     $sql="update details set face_photo='$file_name',body_photo='$file_name2',aadhar='$file_name2' where rec_id='$rec_id'";
                 if($con->query($sql)===TRUE){
-                  echo("INSERTED to details");
+                  // echo("INSERTED to details");
 
                   $sql2="update jaataka set document='$file_name4' where user_id='$uid'";
                   if($con->query($sql2)===TRUE){
-                    echo "Inserted to jataka";
+                    header("Location: index.php");
+                    // echo "Inserted to jataka";
                   }
                     
-                }else echo("Fail Again!");
+                // }else echo("Fail Again!");
 }
 else {
-    echo "<h1>File Upload not successfull</h1>";
+    // echo "<h1>File Upload not successfull</h1>";
+}
 }
 }
 ?>
@@ -176,9 +178,9 @@ else {
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2022 vivahX Co., Ltd. All Rights Reserved. 
+          <p>Copyright © 2022 VivahaX All Rights Reserved. 
           
-          <br>Designed by <a title="CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">Parinaya</a></p>
+          <br>Designed by <a href="#" target="_blank">Parinaya</a></p>
         </div>
       </div>
     </div>
@@ -241,4 +243,4 @@ else {
     </script>
 
   </body>
-</html>
+</html><?php  ?>

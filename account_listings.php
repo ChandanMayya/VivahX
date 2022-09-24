@@ -7,20 +7,16 @@
     $userdata=check_login($con);
     $username=$_SESSION['user_name'];
     $acnt_type=$userdata['acnt_type'];
-    echo("ACTYPE:");
-    echo($acnt_type);
-    echo("SESSION:");
-    echo($_SESSION['acnt_type']);
+    
     $query="select uname,rec_id,email from user where acnt_type NOT IN ('$acnt_type','a','as')";
     
     if($res=$con->query($query)){
-      echo "User Fetched!";
        //$query2="select * from details where rec_id=$i[rec_id]";
         //if($res=$con->query($query)){
         //}
         $row=mysqli_fetch_assoc($res);
         $recno=count($row);
-        echo $recno;
+
         
       
     }else{
@@ -76,21 +72,21 @@
                       <a href="index.html" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>
-                      <!-- ***** Logo End ***** -->
+                       ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
                           <li class="scroll-to-section"><a href="index.php">Home</a></li>
                           <li class="scroll-to-section"><a class="active" href="account_listings.html">Meet People</a></li>
-                          <li class="scroll-to-section"><a href="index.html">About</a></li>
+                          <li class="scroll-to-section"><a href="about-us.html">About</a></li>
                           <li class="has-sub">
                               <a href="javascript:void(0)">Pages</a>
                               <ul class="sub-menu">
                                   <li><a href="about-us.html">About Us</a></li>
-                                  <li><a href="our-services.html">Our Services</a></li>
+                                  <!-- <li><a href="our-services.html">Our Services</a></li> -->
                                   <li><a href="contact-us.html">Contact Us</a></li>
                               </ul>
                           </li>
-                          <li class="scroll-to-section"><a href="index.html">Testimonials</a></li>
+                          <!-- <li class="scroll-to-section"><a href="index.html">Testimonials</a></li> -->
                           <li><a href="contact-us.html">Contact Support</a></li> 
                       </ul>        
                       <a class='menu-trigger'>

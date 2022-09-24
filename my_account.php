@@ -101,9 +101,9 @@ https://templatemo.com/tm-574-mexant
                            ***** Logo End ***** -->
                           <!-- ***** Menu Start ***** -->
                           <ul class="nav">
-                              <li class="scroll-to-section"><a href="index.html">Home</a></li>
-                              <li class="scroll-to-section"><a href="index.html">Services</a></li>
-                              <li class="scroll-to-section"><a href="index.html">About</a></li>
+                              <li class="scroll-to-section"><a href="index.php">Home</a></li>
+                              <!-- <li class="scroll-to-section"><a href="index.html">Services</a></li> -->
+                              <li class="scroll-to-section"><a href="about-us.html">About</a></li>
                               <li class="has-sub">
                                   <a href="javascript:void(0)">Pages</a>
                                   <ul class="sub-menu">
@@ -112,7 +112,7 @@ https://templatemo.com/tm-574-mexant
                                       <li><a href="contact-us.html">Contact Us</a></li>
                                   </ul>
                               </li>
-                              <li class="scroll-to-section"><a href="index.html">Testimonials</a></li>
+                              <!-- <li class="scroll-to-section"><a href="index.html">Testimonials</a></li> -->
                               <!-- <li><a href="contact-us.html">Contact Support</a></li>  -->
                           </ul>        
                           <a class='menu-trigger'>
@@ -348,19 +348,21 @@ https://templatemo.com/tm-574-mexant
                                    <form action="" method="post">
                                         <label for="submit">Type the user name displayed in requests received to accept the request and pass it for validation
                                              <input type="text" name="inpt_uname" id="">
-                                             <input type="submit" value="Accept" class="btn btn-success">
+                                             <input type="submit" value="Accept" class="btn btn-success"><br>
+                                             <div><br><br><ul class="nav">
+                              <li class="scroll-to-section"><a href="logout.php" class="btn btn-primary">Logout</a></li></div>
                                         </label>
                                    </form>
                               </div>
                               
                           </div>
-
+                          
        
                                </strong>
                          </p>
                     </div> 
                </div>  
-         <br><br>
+               <br><br>
  <footer>
      <div class="container">
        <div class="row">

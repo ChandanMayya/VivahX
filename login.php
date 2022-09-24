@@ -125,6 +125,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
       <div class="col-6">
         <input type="reset" value="Reset" class="btn btn-danger"> 
+        <div class="btn btn-primary"><a href="signup.php"><p>SignUp</p></a></div>
       <input type="submit" value="Submit" class="btn btn-success">
      
     </div>

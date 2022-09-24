@@ -6,6 +6,8 @@ include("connection.php");
 include("functions.php");
 
 $user_data=check_login($con);
+if(isset($_SESSION['feed']))
+  echo"Feedback Sent!";
 
 if($user_data['acnt_type']=='a' )
   header("Location: login.php");
@@ -17,8 +19,10 @@ if($user_data['acnt_type']=='a' )
     $sub=$_POST['subject'];
     $cont=$_POST['message'];
     $query="INSERT INTO `feedback`(`feed_id`, `title`, `content`, `user_id`) VALUES ('$feedid','$sub','$cont','$userid')";
-    if($res=$con->query($query))
-      header("Location: success.html");
+    if($res=$con->query($query)){
+      $_SESSION['feed']=1;
+      header("Location: feedback.php");
+    }
 
   }
 ?>

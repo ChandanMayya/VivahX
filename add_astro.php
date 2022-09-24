@@ -80,7 +80,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky bg-success">
+  <header class="header-area header-sticky">
       <div class="container">
           <div class="row">
             <div class="col-12" class="col-sm-6">
@@ -92,18 +92,18 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                          <li class="scroll-to-section"><a href="#services">Services</a></li>
-                          <li class="scroll-to-section"><a href="#about">About</a></li>
+                          <li class="scroll-to-section"><a href="admin.php" class="active">Home</a></li>
+                          <!-- <li class="scroll-to-section"><a href="#services">Services</a></li> -->
+                          <li class="scroll-to-section"><a href="about-us.html">About</a></li>
                           <li class="has-sub">
                               <a href="javascript:void(0)">Pages</a>
                               <ul class="sub-menu">
                                   <li><a href="about-us.html">About Us</a></li>
-                                  <li><a href="our-services.html">Our Services</a></li>
+                                  <!-- <li><a href="our-services.html">Our Services</a></li> -->
                                   <li><a href="contact-us.html">Contact Us</a></li>
                               </ul>
                           </li>
-                          <li class="scroll-to-section"><a href="#testimonials">Testimonials</a></li>
+                          <!-- <li class="scroll-to-section"><a href="#testimonials">Testimonials</a></li> -->
                           <li><a href="contact-us.html">Contact Support</a></li> 
                       </ul>        
                       <a class='menu-trigger'>
@@ -116,6 +116,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
       </div>
   </header>
   <!-- ***** Header Area End ***** -->
+
+  <div class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="header-text">
+            <h2> Astrologer</h2>
+            <div class="div-dec"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <center>
   <div class="page-container" class="col-6" class="col-sm-12">
     <!-- <div class="col-6" class="col-sm-12"> -->
@@ -153,5 +167,74 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     </center> 
     </div>
 </div>
+<br><br>
+<footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2022 VivahX Co., Ltd. All Rights Reserved. 
+          
+          <br>Designed by <a title="CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">Parinaya</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/tabs.js"></script>
+    <script src="assets/js/swiper.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+        var interleaveOffset = 0.5;
+
+      var swiperOptions = {
+        loop: true,
+        speed: 1000,
+        grabCursor: true,
+        watchSlidesProgress: true,
+        mousewheelControl: true,
+        keyboardControl: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        on: {
+          progress: function() {
+            var swiper = this;
+            for (var i = 0; i < swiper.slides.length; i++) {
+              var slideProgress = swiper.slides[i].progress;
+              var innerOffset = swiper.width * interleaveOffset;
+              var innerTranslate = slideProgress * innerOffset;
+              swiper.slides[i].querySelector(".slide-inner").style.transform =
+                "translate3d(" + innerTranslate + "px, 0, 0)";
+            }      
+          },
+          touchStart: function() {
+            var swiper = this;
+            for (var i = 0; i < swiper.slides.length; i++) {
+              swiper.slides[i].style.transition = "";
+            }
+          },
+          setTransition: function(speed) {
+            var swiper = this;
+            for (var i = 0; i < swiper.slides.length; i++) {
+              swiper.slides[i].style.transition = speed + "ms";
+              swiper.slides[i].querySelector(".slide-inner").style.transition =
+                speed + "ms";
+            }
+          }
+        }
+      };
+
+      var swiper = new Swiper(".swiper-container", swiperOptions);
+    </script>
+
 </body>
 </html>

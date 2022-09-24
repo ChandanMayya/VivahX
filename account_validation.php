@@ -5,9 +5,10 @@ session_start();
 include("connection.php");
 include("functions.php");
 
-$user_id=$_SESSION['validation_id'];
-$query1="select rec_id from user where user_id='$user_id'";
-if($result=$con->query($query1)){
+$user_name=$_SESSION['validation_id'];
+
+$query1="select rec_id from user where uname='$user_name'";
+if(mysqli_num_rows($result=$con->query($query1))>0){
     $row=mysqli_fetch_assoc($result);
     $rec_id=$row['rec_id'];
     $query2="select aadhar from details where rec_id='$rec_id'";
@@ -53,25 +54,23 @@ if($result=$con->query($query1)){
           <div class="row">
               <div class="col-12">
                   <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
+                      <!-- ***** Logo Start ***** 
                       <a href="admin.html" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li class="scroll-to-section"><a href="index.html">Home</a></li>
-                          <li class="scroll-to-section"><a href="index.html">Services</a></li>
-                          <li class="scroll-to-section"><a href="index.html">About</a></li>
+                          <li class="scroll-to-section"><a href="index.php">Home</a></li>
+                          <li class="scroll-to-section"><a href="about-us.html">About</a></li>
                           <li class="has-sub">
                               <a href="javascript:void(0)">Pages</a>
                               <ul class="sub-menu">
                                   <li><a href="about-us.html">About Us</a></li>
-                                  <li><a href="our-services.html">Our Services</a></li>
                                   <li><a href="contact-us.html">Contact Us</a></li>
+                                  <li><a href="feedback.php">FeedBack</a></li>
                               </ul>
                           </li>
-                          <li class="scroll-to-section"><a href="index.html">Testimonials</a></li>
                           <li><a href="contact-us.html">Contact Support</a></li> 
                       </ul>        
                       <a class='menu-trigger'>
@@ -103,10 +102,10 @@ if($result=$con->query($query1)){
     <div class="row">
         <div class="col col-lg-6">
             <h3 style="color: #ffd3b7  ;">Aadhar Card:</h3><br>
-            <img class="img-thumbnail iimg" src="./userupolads/document/<?php echo $row2['document'] ?>" alt=""></img>
+            <img class="img-thumbnail iimg" src="./userupolads/document/<?php echo $row2['aadhar'] ?>" alt=""></img>
         </div>
     </div>
-</div>
+</div></center>
   <div class="row">
         <div class="col-lg-12"><br><br>
           <p>Copyright © 2022 Mexant Co., Ltd. All Rights Reserved. 
@@ -199,4 +198,4 @@ if($result=$con->query($query1)){
     </style>
 
   </body>
-</html> <?php } } ?>
+</html> <?php } }else echo "Rows not found" ?>

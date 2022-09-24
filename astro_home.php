@@ -78,11 +78,11 @@ https://templatemo.com/tm-574-mexant
                               <a href="javascript:void(0)">Pages</a>
                               <ul class="sub-menu">
                                   <li><a href="about-us.html">About Us</a></li>
-                                  <li><a href="our-services.html">Our Services</a></li>
+                                  <!-- <li><a href="our-services.html">Our Services</a></li> -->
                                   <li><a href="contact-us.html">Contact Us</a></li>
                               </ul>
                           </li>
-                          <li class="scroll-to-section"><a href="index.html">Testimonials</a></li>
+                          <!-- <li class="scroll-to-section"><a href="index.html">Testimonials</a></li> -->
                           <li><a href="contact-us.html">Contact Support</a></li> 
                       </ul>        
                       <a class='menu-trigger'>
