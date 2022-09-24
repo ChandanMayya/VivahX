@@ -36,7 +36,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 $aphone=$_POST['aphone'];
                 $amail=$_POST['amail'];
                 $addr=$_POST['address'];
-                $height=$_POST['height'];
+                $height=$_POST['height'];  //$_POST['height'];
                 $weight=$_POST['weight'];
                 $comp=$_POST['compxn'];
                 $nakshatra=$_POST['nakshatra'];
@@ -220,13 +220,13 @@ if(mysqli_num_rows($runquery1) != 0){
                 <br>
                 <div class="col-12 col-md-12 ">
                     <label for="height">Height:
-                        <input type="text" name="height" id="height" required>
+                        <input type="text" name="height" id="height" required step="0.01">
                     </label>
                 </div>
                 <br>
                 <div class="col-12 col-md-12 ">
                     <label for="weight">Weight:
-                        <input type="text" name="weight" id="weight" required>
+                        <input type="text" name="weight" id="weight" required step="0.01">
                     </label>
                 </div>
                 <br>
@@ -298,7 +298,7 @@ if(mysqli_num_rows($runquery1) != 0){
                     <input type="text" name="prof" id="prof">
                 </label><br><br>
                 <label for="earn">Yearly Earnings:
-                    <input type="text" name="earn" id="earn">
+                    <input type="text" name="earn" id="earn" step="0.01">
                 </label><br><br>
             </div><br>
             <div class="form-control disp">
