@@ -6,7 +6,8 @@ include("functions.php");
 
 $userdata=check_login($con);
 $user_id=$userdata['user_id'];
-
+$email=$userdata['email'];
+$acnt_type=$_SESSION['acnt_type'];
 $user_name=$_SESSION['user_name'];
 $query1 = "SELECT details,email,rec_id FROM user WHERE uname='$user_name'";
 $runquery1=$con->query($query1);
@@ -196,7 +197,7 @@ if(mysqli_num_rows($runquery1) != 0){
                 <br>
                 <div class="col-12">
                     <label for="mail">Primary Mail Address:
-                        <input type="email" name="mail" id="mail">
+                        <input type="email" name="mail" id="mail" value="<?php echo $email;  ?>" disabled >
                     </label>
                 </div>
                 <br>
@@ -283,7 +284,7 @@ if(mysqli_num_rows($runquery1) != 0){
                 </label>
                 <br><br>
                 <label for="dob">Birth Date:
-                    <input type="date" name="date" id="date">
+                    <input type="date" name="date" id="date" <?php if($acnt_type=='b'){ ?> max="2004-01-01" <?php }else{ ?>max="2001-01-01" <?php } ?>>
                 </label><br><br>
                 <br><br>
             </div><br>

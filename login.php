@@ -70,7 +70,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <style>
         .cardi{
             background: linear-gradient(to bottom right, #ffffff 0%, #ffcc66 100%);
-;
+
         }
         .cardi_base{
             border: 2px solid #ff6600;
