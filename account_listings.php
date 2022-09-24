@@ -68,7 +68,7 @@
           <div class="row">
               <div class="col-12">
                   <nav class="main-nav">
-                      <!-- ***** Logo Start ***** 
+                      <!-- ***** Logo Start ***** -->
                       <a href="index.html" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>
