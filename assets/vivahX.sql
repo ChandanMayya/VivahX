@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2022 at 12:19 PM
+-- Generation Time: Sep 25, 2022 at 12:57 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -33,15 +33,17 @@ CREATE TABLE `astro_req` (
   `user2` char(4) NOT NULL,
   `u1val` tinyint(1) NOT NULL,
   `u2val` tinyint(1) NOT NULL,
-  `validate` tinyint(4) NOT NULL
+  `validate` tinyint(4) NOT NULL,
+  `withheld` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `astro_req`
 --
 
-INSERT INTO `astro_req` (`req_id`, `user1`, `user2`, `u1val`, `u2val`, `validate`) VALUES
-('2220', '7845', '1274', 1, 1, 0);
+INSERT INTO `astro_req` (`req_id`, `user1`, `user2`, `u1val`, `u2val`, `validate`, `withheld`) VALUES
+('2220', '7845', '1274', 1, 1, 1, 0),
+('7030', '7845', '1274', 1, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -77,7 +79,10 @@ CREATE TABLE `details` (
 --
 
 INSERT INTO `details` (`rec_id`, `fname`, `minit`, `lname`, `phone`, `aphone`, `aemail`, `address`, `height_ft`, `height_in`, `weight`, `complexion`, `face_photo`, `body_photo`, `about`, `profession`, `earnings`, `requirement`, `aadhar`, `qualification`) VALUES
+('2431', '', '', '', 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
 ('3247', 'Sulochana', 'prema', 'Shekhara', 987568696, 2147483647, 'amail', 'Keshava priya, Kumara layout, Keshava city, bharata rashtra', '-ft', '-in', '45', 'Brown', '2020-04-15 (1).png', '2020-05-25 (1).png', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod nulla, aperiam alias consequatur maxime explicabo ipsum porro quis unde praesentium recusandae illum deleniti. Aut voluptatibus tempora fugit sunt ducimus ea.', 'Tester', '540000', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod nulla, aperiam alias consequatur maxime explicabo ipsum porro quis unde praesentium recusandae illum deleniti. Aut voluptatibus tempora fugit sunt ducimus ea.', '2020-05-25 (1).png', 'BCA'),
+('4567', '', '', '', 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
+('6816', '', '', '', 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
 ('7850', 'Keshava', 'priya', 'Madhusudhana', 2147483647, 2147483647, 'amail', 'Shakthi nilaya, Kumara layout, Keshava City, Bharatha Rashtra', '-ft', '-in', '56', 'Brown', '2020-08-05 (3).png', '2020-08-05 (5).png', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod nulla, aperiam alias consequatur maxime explicabo ipsum porro quis unde praesentium recusandae illum deleniti. Aut voluptatibus tempora fugit sunt ducimus ea.', 'Developer', '560000', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod nulla, aperiam alias consequatur maxime explicabo ipsum porro quis unde praesentium recusandae illum deleniti. Aut voluptatibus tempora fugit sunt ducimus ea.', '2020-08-05 (5).png', 'BE Computer Science');
 
 -- --------------------------------------------------------
@@ -167,8 +172,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `uname`, `password`, `acnt_type`, `validate`, `rec_id`, `email`, `details`, `withheld`) VALUES
+('0066', 'pushpalatha', 'push123', '', 0, '4567', 'push@gmail.com', 0, 0),
 ('1000', 'admin', 'admin', 'a', 1, NULL, '', 0, 0),
 ('1274', 'keshava', 'kes123', 'bg', 1, '7850', 'keshava@gmail.com', 0, 0),
+('1671', 'Purushothama', 'puru123', 'as', 0, '6816', 'purushothama@gmail.com', 0, 0),
+('3158', 'dakshyayini', 'dak123', 'b', 0, '2431', 'dakshyayini@gmail.com', 0, 0),
 ('7845', 'sulochana', 'sulo123', 'b', 1, '3247', 'sulochana@gmail.com', 0, 0);
 
 --
