@@ -4,6 +4,8 @@ session_start();
 include("connection.php");
 include("functions.php");
 
+$errormsg="";
+
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
       $user_name=($_POST['username']);
@@ -12,11 +14,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
       $query = "SELECT validate,uname,user_id,acnt_type FROM user WHERE uname='$user_name' and password='$passwd' limit 1";
      
      $result=mysqli_query($con,$query);
-     if(mysqli_num_rows($result)!=1){
-         echo "Invalid Credentials....";
-
+     if(mysqli_num_rows($result)==0){
+         $errormsg="Invalid Credentials....";
      }else{
-        echo "Record FOund!";
         $row = $result->fetch_assoc();
         $_SESSION['user_name']=$user_name;
         $_SESSION['uid']=$row['user_id'];
@@ -75,6 +75,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         .cardi_base{
             border: 2px solid #ff6600;
             background-color: #e6e6e6;
+        }
+        .errormsg{
+          color:orangered;
         }
     </style>
 </head>
@@ -148,6 +151,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
       </label>
     </div><br><br>
     <div class="cardi_base rounded-bottom">
+
+    <span><p class="errormsg"><?php echo $errormsg; ?></p></span>
       <div class="col-6"><br>
         <input type="reset" value="Reset" class="btn btn-danger"> 
      

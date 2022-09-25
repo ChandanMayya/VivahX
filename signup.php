@@ -1,6 +1,8 @@
 <?php 
 session_start();
 
+$errormsg="";
+
 include("connection.php");
 include("functions.php");
 if($_SERVER['REQUEST_METHOD'] == "POST")
@@ -27,22 +29,21 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                         if($con->query($stmt2)===TRUE){
                             $stmt = "insert into user (user_id,uname,password,acnt_type,email,rec_id) values ('$uid','$user_name','$psw','$acnt_type','$mail','$recid')";
                             if($con->query($stmt)===TRUE){
-                                echo("INSERTED");
                                 header("Location: login.php");
                             }else
-                                echo("Some error");
-                        }else{echo"Error in details linkage..";}
+                                $errormsg="Some error";
+                        }else{$errormsg="Error in details linkage..";}
                     }
                     else
-                        echo("Use some other mail id");
+                        $errormsg="Use some other mail id";
                 else    
-                    echo("Passwords must be alpha numeric");
+                  $errormsg="Passwords must be alpha numeric";
             else
-                echo("passowrd must be more than 5 charcters");
+             $errormsg="passowrd must be more than 5 charcters";
         else   
-            echo("Passwords does not match");
+          $errormsg="Passwords does not match";
     else
-        echo("user name exists");
+      $errormsg="user name exists";
 }
 ?>
 <!DOCTYPE html>
@@ -76,6 +77,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         .cardi_base{
             border: 2px solid #ff6600;
             background-color: #e6e6e6;
+        }
+        .errormsg{
+          color:orangered;
         }
     </style>
   </head>
@@ -172,7 +176,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     </div>
         <!-- <br><br>     -->
         <div class="cardi_base  rounded-bottom"><br>
-        <span id="error_msg"></span> 
+        <span><p class="errormsg"><?php echo $errormsg; ?></p></span>
         <input type="reset" value="Reset" class="btn btn-danger"> 
         <input type="submit" class="btn btn-success"value="Submit"><br><br>
         </div>
