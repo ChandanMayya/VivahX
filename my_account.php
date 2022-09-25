@@ -36,6 +36,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                }
           }
     }elseif(isset($_POST['view'])){
+          $uname=$_POST['inpt_uname'];
           $_SESSION['runame']=$uname;
           header("Location: view_details.php");
     }
