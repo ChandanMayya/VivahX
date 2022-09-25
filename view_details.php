@@ -187,7 +187,7 @@ https://templatemo.com/tm-574-mexant
                     <div class="panel-body">
                          <h6>Height</h6>
                          <p>
-                              <?php echo $user_data['height'];?>
+                              <?php echo $user_data['height_ft'];?> Feet and <?php echo $user_data['height_in'];?> inches
                          </p> 
                                    <br>
                          <h6>Weight</h6>

@@ -35,8 +35,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 $aphone=$_POST['aphone'];
                 $amail=$_POST['amail'];
                 $addr=$_POST['address'];
-                $height_ft=$_POST['height-ft'];  //$_POST['height'];
-                $height_in=$_POST['height-in'];
+                $height_ft=$_POST['height_ft'];  //$_POST['height'];
+                $height_in=$_POST['height_in'];
                 $weight=$_POST['weight'];
                 $comp=$_POST['compxn'];
                 $nakshatra=$_POST['nakshatra'];
@@ -59,7 +59,7 @@ $runquery1=$con->query($query1);
 if(mysqli_num_rows($runquery1) != 0){
     $row1=mysqli_fetch_assoc($runquery1);
     $rec_id=$row1['rec_id'];
-                $stmt4="UPDATE `details` SET `fname`='$fname',`minit`='$mname',`lname`='$lname',`phone`='$phone',`aphone`='$aphone',`aemail`='amail',`address`='$addr',`height_ft`='$height-ft',`height_in`='$height-in',`weight`='$weight',`complexion`='$comp',`about`='$about',`profession`='$profsn',`earnings`='$salary',`requirement`='$requirement',`qualification`='$graduation' WHERE `rec_id`='$rec_id'";
+                $stmt4="UPDATE `details` SET `fname`='$fname',`minit`='$mname',`lname`='$lname',`phone`='$phone',`aphone`='$aphone',`aemail`='amail',`address`='$addr',`height_ft`='$height_ft',`height_in`='$height_in',`weight`='$weight',`complexion`='$comp',`about`='$about',`profession`='$profsn',`earnings`='$salary',`requirement`='$requirement',`qualification`='$graduation' WHERE `rec_id`='$rec_id'";
                         if($con->query($stmt4)===TRUE){
                             $jtk_id= random_num(4);
                             $query4="INSERT INTO `jaataka`(`jtk_id`, `gotra`, `DOB`, `paada`, `nakshatra`, `user_id`) VALUES ('$jtk_id','$gotra','$dob','$paada','$nakshatra','$user_id')";
@@ -221,12 +221,12 @@ if(mysqli_num_rows($runquery1) != 0){
                 <div class="row" ><center>
                 <div class="col-6 col-md-6 ">
                     <label for="height">Height <br> <br> Feet:
-                        <input type="text" name="height-ft" id="height" placeholder="5 feet" required>
+                        <input type="text" name="height_ft" placeholder="5 feet" required>
                     </label>
                 </div><br>
                 <div class="col-6 col-md-6 ">
                     <label for="height">inches:
-                        <input type="text" name="height-in" id="height" placeholder="2 inches" required>
+                        <input type="text" name="height_in" placeholder="2 inches" required>
                     </label>
                 </div></center>
                 </div>
@@ -291,7 +291,7 @@ if(mysqli_num_rows($runquery1) != 0){
                 </label>
                 <br><br>
                 <label for="dob">Birth Date:
-                    <input type="date" name="date" id="date" required <?php if($acnt_type=='b'){ ?> max="2004-01-01" <?php }else{ ?>max="2001-01-01" <?php } ?>>
+                    <input type="date" name="date" id="date" required max="<?php if($acnt_type=='b'){ echo"2004-01-01";}else{ echo "2001-01-01";}?>">
                 </label><br><br>
                 <br><br>
             </div><br>
@@ -366,3 +366,4 @@ if(mysqli_num_rows($runquery1) != 0){
     </script>
 </body>
 </html>
+

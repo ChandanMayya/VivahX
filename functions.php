@@ -15,8 +15,8 @@ function check_login($con)
 		{
 			
 			$user_data = mysqli_fetch_assoc($result);
-			if($user_data['withheld']==1)
-				header("Location: withheld.php");
+			 if($user_data['withheld']==1)
+			 	header("Location: withheld.php");
 			else
 				return $user_data;
 		}
