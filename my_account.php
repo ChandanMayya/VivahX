@@ -18,31 +18,37 @@ else
 echo"Some Error";
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
-    {
-      $uname=$_POST['inpt_uname'];
-      $query = "select user_id from user where uname = '$uname'";
-      if($res=$con->query($query)){
-          $row=mysqli_fetch_assoc($res);
-          $user_id=$row['user_id'];
-          if($_SESSION['acnt_type']='b'){
-               $query5="update astro_req set u1val=1 where user2 = '$user_id' and  user1='$uid'";
-               if($con->query($query5))
-                    header("Location: my_account.php");
+{
+     if(isset($_POST['accept'])){
+          $uname=$_POST['inpt_uname'];
+          $query = "select user_id from user where uname = '$uname'";
+          if($res=$con->query($query)){
+               $row=mysqli_fetch_assoc($res);
+               $user_id=$row['user_id'];
+               if($_SESSION['acnt_type']=='b'){
+                    $query5="update astro_req set u1val=1 where user2 = '$user_id' and  user1='$uid'";
+                    if($con->query($query5))
+                         header("Location: my_account.php");
+               }else{
+                    $query5="update astro_req set u2val=1 where user1 = '$user_id' and  user2='$uid'";
+                    if($con->query($query5))
+                         header("Location: my_account.php");
+               }
           }
-
-
-       // header("Location: view_details.php");
-      }
+    }elseif(isset($_POST['view'])){
+          $_SESSION['runame']=$uname;
+          header("Location: view_details.php");
     }
+}
 
-if($_SESSION['acnt_type']='b'){
-     $query2="select * from astro_req where user1 IN ('$uid')";
-     $query4="select * from astro_req where user1 IN ('$uid') and u1val=0";
-     $query6="select * from astro_req where user1 IN ('uid') and u1val=1 and u2val=1";
-}else{
-     $query2="select * from astro_req where user2 IN ('$uid')";
-     $query4="select * from astro_req where user2 IN ('$uid') and u0val=0";
-     $query6="select * from astro_req where user2 IN ('uid') and u1val=1 and u2val=1";
+if($_SESSION['acnt_type']=='b'){
+     $query2="select * from astro_req where user1 = '$uid' and u1val=1";
+     $query4="select * from astro_req where user1 = '$uid' and u1val=0";
+     $query6="select * from astro_req where user1 ='$uid' and u1val=1 and u2val=1";
+}else{echo "Running";
+     $query2="select * from astro_req where user2 = '$uid' and u1val=0 and u2val=1" ;
+     $query4="select * from astro_req where user2 = '$uid' and u1val=1";
+     $query6="select * from astro_req where user2 = '$uid' and u1val=1 and u2val=1";
 }
 if(($result2=$con->query($query2))&&($result4=$con->query($query4))&&($result6=$con->query($query6))){
 
@@ -277,7 +283,7 @@ https://templatemo.com/tm-574-mexant
                                         </thead>
                                         <tbody>
                                              <?php foreach($result2 as $i){ 
-                                                  if($_SESSION['acnt_type']='b')
+                                                  if($_SESSION['acnt_type']=='b')
                                                        $itrationID=$i['user2'];
                                                   else
                                                        $itrationID=$i['user1'];
@@ -287,8 +293,28 @@ https://templatemo.com/tm-574-mexant
                                              ?>
                                              <tr class="">
                                                   <td scope="row"><?php echo $row['uname'] ?></td>
-                                                  <td><?php if($_SESSION['acnt_type']='b') echo $i['u2val']; else  echo $i['u1val'];?></td>
-                                                  <td><?php echo $i['validate'];  ?></td>
+                                                  <td>
+                                                       <?php
+                                                            if($_SESSION['acnt_type']=='b') 
+                                                                 if($i['u2val']==1)
+                                                                      echo "Yes";
+                                                                 else 
+                                                                      echo "No"; 
+                                                            else  
+                                                                 if($i['u1val']==1)
+                                                                      echo "Yes";
+                                                                 else
+                                                                      echo"No"
+                                                       ?>
+                                                  </td>
+                                                  <td>
+                                                       <?php 
+                                                            if($i['validate']==1)
+                                                                 echo "Yes";  
+                                                            else 
+                                                                 echo "No";
+                                                       ?>
+                                                  </td>
                                              </tr>
                                              <?php } } ?>
                                         </tbody>
@@ -296,7 +322,7 @@ https://templatemo.com/tm-574-mexant
                               </div>
                               
                           </div>
-                          <div class="container">
+                          <!--<div class="container">
                               <div class="table-responsive"><br><h4>Connected</h4>
                                    <table class="table table-primary"><br>
                                         <thead>
@@ -306,8 +332,8 @@ https://templatemo.com/tm-574-mexant
                                              </tr>
                                         </thead>
                                         <tbody>
-                                             <?php foreach($result6 as $i){ 
-                                                  if($_SESSION['acnt_type']='b')
+                                             <?php /* foreach($result6 as $i){ 
+                                                  if($_SESSION['acnt_type']=='b')
                                                        $itrationID=$i['user2'];
                                                   else
                                                        $itrationID=$i['user1'];
@@ -319,10 +345,10 @@ https://templatemo.com/tm-574-mexant
                                                   <td scope="row"><?php echo $row['uname'] ?></td>
                                                   <td><?php echo $i['validate'];  ?></td>
                                              </tr>
-                                             <?php } } ?>
+                                             <?php } }      */ ?>
                                         </tbody>
                                    </table>
-                              </div>
+                              </div>-->
                               
                           </div>
                           <div class="container">
@@ -337,7 +363,7 @@ https://templatemo.com/tm-574-mexant
                                         </thead>
                                         <tbody>
                                              <?php foreach($result4 as $i){ 
-                                                  if($_SESSION['acnt_type']='b')
+                                                  if($_SESSION['acnt_type']=='b')
                                                        $itrationID=$i['user2'];
                                                   else
                                                        $itrationID=$i['user1'];
@@ -347,8 +373,28 @@ https://templatemo.com/tm-574-mexant
                                              ?>
                                              <tr class="">
                                                   <td scope="row"><?php echo $row['uname'] ?></td>
-                                                  <td><?php if($_SESSION['acnt_type']='b') echo $i['u1val']; else  echo $i['u2val'];?></td>
-                                                  <td><?php echo $i['validate'];  ?></td>
+                                                  <td>
+                                                       <?php 
+                                                            if($_SESSION['acnt_type']=='b')   
+                                                                 if($i['u2val']==1)
+                                                                      echo "Yes";
+                                                                 else
+                                                                      echo "No";
+                                                            else  
+                                                                 if($i['u2val']==1)
+                                                                      echo "Yes";
+                                                                 else 
+                                                                      echo "NO";
+                                                       ?>
+                                                  </td>
+                                                  <td>
+                                                       <?php 
+                                                            if($i['validate']==1) 
+                                                                 echo"Yes"; 
+                                                            else 
+                                                                 echo "No";  
+                                                       ?>
+                                                  </td>
                                              </tr>
                                              <?php } } ?>
                                         </tbody>
@@ -356,7 +402,8 @@ https://templatemo.com/tm-574-mexant
                                    <form action="" method="post">
                                         <label for="submit">Type the user name displayed in requests received to accept the request and pass it for validation
                                              <input type="text" name="inpt_uname" id="">
-                                             <input type="submit" value="Accept" class="btn btn-success"><br>
+                                             <input type="submit" name="view" value="View" class="btn btn-primary">
+                                             <input type="submit" value="Accept" name="accept" class="btn btn-success"><br>
                                             
                                         </label>
                                    </form>
