@@ -20,7 +20,6 @@ if(mysqli_num_rows($runquery1) != 0){
     }
 }
 
-
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
     $user_name=$user_name;

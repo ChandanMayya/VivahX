@@ -7,6 +7,16 @@ include("functions.php");
 
 $user_name=$_SESSION['validation_id'];
 
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{
+  if(isset($_POST['approve']))
+    $query3="update user set validate='1' where uname='$user_name'";
+  elseif(isset($_POST['deny']))
+    $query3="update user set withheld='1' where uname='$user_name'";
+  if($con->query($query3))
+    header("Location: success.html");
+}
+
 $query1="select rec_id from user where uname='$user_name'";
 if(mysqli_num_rows($result=$con->query($query1))>0){
     $row=mysqli_fetch_assoc($result);
@@ -26,7 +36,7 @@ if(mysqli_num_rows($result=$con->query($query1))>0){
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Astrologer Dashboard</title>
+    <title>Account Verification</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -99,10 +109,19 @@ if(mysqli_num_rows($result=$con->query($query1))>0){
 <footer>
 
 <div class="container">
-    <div class="row">
+    <div class="row"><center>
         <div class="col col-lg-6">
             <h3 style="color: #ffd3b7  ;">Aadhar Card:</h3><br>
             <img class="img-thumbnail iimg" src="./userupolads/document/<?php echo $row2['aadhar'] ?>" alt=""></img>
+        </div><br>
+        <div class="col col-lg-6">
+          <form action="" method="post">
+            <label for="inp" style="color:#ffd3b7;">Provide access to the website to this account by clicking the below button: 
+              <br><br>
+              <input type="submit" value="Approve" name="approve" class="btn btn-primary">&nbsp;&nbsp;
+              <input type="submit" value="Deny" name="deny" class="btn btn-danger" style="width:100px ;">
+            </label>
+          </form>
         </div>
     </div>
 </div></center>

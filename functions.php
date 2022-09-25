@@ -13,10 +13,13 @@ function check_login($con)
 		$result = mysqli_query($con,$query);
 		if($result && mysqli_num_rows($result) > 0)
 		{
-
+			
 			$user_data = mysqli_fetch_assoc($result);
-			return $user_data;
-		}else echo "Selection!";
+			if($user_data['withheld']==1)
+				header("Location: withheld.php");
+			else
+				return $user_data;
+		}
 	}
 	//echo $_SESSION['uid'];
 	//redirect to login

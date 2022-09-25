@@ -45,13 +45,12 @@ if($user_data['acnt_type']!='a' )
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-<!--
-
-TemplateMo 574 Mexant
-
-https://templatemo.com/tm-574-mexant
-
--->
+<style>
+  .cardi_base{
+            border: 2px solid #ff6600;
+            background-color: #e6f9ff;
+        }
+</style>
 
   </head>
 
@@ -113,57 +112,64 @@ https://templatemo.com/tm-574-mexant
 
   <section class="top-section">
     <div class="container">
-      <h2 style="text-align:center">Bride Accounts</h2>
-      <div class="row"><center>
-        <div class="col-lg-9">
-          <br>
-          <table class="table table-striped table-bordered table-hover">
-            <tr class="table-primary">
-              <th class="thead">User Name</th>
-              <th class="thead">Email</th>
-              <th class="thead">Valid</th>
-            </tr>
-            <?php foreach($res1 as $i){ ?>
-            <tr>
-              <td><?php echo $i['uname'] ?></td>
-              <td><?php echo $i['email'] ?></td>
-              <td class="thead"><?php echo $i['validate'] ?></td>
-            </tr><?php } ?>
-          </table>
-  </center>
-        </div>
-        
-      </div>
-    </div><br><br><br>
+      <center>
+      <div class="cardi_base">
+        <br>
+        <form action="" method="post">
+          <input type="text" name="useridd">
+          <input type="submit" value="View Document" class="btn btn-secondary">
+        </form>
+        <br>
+        <h2 style="text-align:center">Bride Accounts</h2>
+        <div class="row"><center>
+          <div class="col-lg-9">
+            <br>
+            <table class="table table-striped table-bordered table-hover">
+              <tr class="table-primary">
+                <th class="thead">User Name</th>
+                <th class="thead">Email</th>
+                <th class="thead">Valid</th>
+              </tr>
+              <?php foreach($res1 as $i){ ?>
+                <tr>
+                  <td><?php echo $i['uname'] ?></td>
+                  <td><?php echo $i['email'] ?></td>
+                  <td class="thead"><?php echo $i['validate'] ?></td>
+                </tr>
+              <?php } ?>
+            </table>
+            </center> 
+          <!-- </div> -->
+        </div><br><br><br>
 
-    <div class="container">
-      <h2 style="text-align:center">Bride-Groom Accounts</h2>
-      <div class="row"><center>
-        <div class="col-lg-9">
-          <br>
-          <table class="table table-striped table-bordered table-hover">
-            <tr class="table-primary">
-              <th class="thead">User Name</th>
-              <th class="thead">Email</th>
-              <th class="thead">Valid</th>
-            </tr>
-            <?php foreach($res2 as $i){ ?>
-            <tr>
-              <td><?php echo $i['uname'] ?></td>
-              <td><?php echo $i['email'] ?></td>
-              <td class="thead"><?php echo $i['validate'] ?></td>
-            </tr><?php } ?>
-          </table><br>
-          <form action="" method="post">
-            <input type="text" name="useridd">
-            <input type="submit" value="View Document" class="btn btn-secondary">
-          </form>
-  </center>
+        <div class="container">
+          <h2 style="text-align:center">Bride-Groom Accounts</h2>
+          <div class="row"><center>
+            <div class="col-lg-9">
+              <br>
+              <table class="table table-striped table-bordered table-hover">
+                <tr class="table-primary">
+                  <th class="thead">User Name</th>
+                  <th class="thead">Email</th>
+                  <th class="thead">Valid</th>
+                </tr>
+                <?php foreach($res2 as $i){ ?>
+                  <tr>
+                    <td><?php echo $i['uname'] ?></td>
+                    <td><?php echo $i['email'] ?></td>
+                    <td class="thead"><?php echo $i['validate'] ?></td>
+                  </tr>
+                <?php } ?>
+              </table>
+              <br>
+          
+              </center>
+            </div>
+          </div>
         </div>
-        
       </div>
     </div>
-<br><br><br>
+    <br><br><br>
     
   </section>  
 
