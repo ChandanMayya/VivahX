@@ -3,35 +3,36 @@ session_start();
 
 include("connection.php");
 include("functions.php");
+
 $view_uname=$_SESSION['runame'];
+
 $conversionquery="select user_id,rec_id from user where uname='$view_uname'";
+
 if($result=$con->query($conversionquery)){
      $row=mysqli_fetch_assoc($result);
      $view_recid=$row['rec_id'];
      $view_uid=$row['user_id'];
 
-$query1="select * from details where rec_id='$view_recid'";
-$result=mysqli_query($con,$query1);
+     $query1="select * from details where rec_id='$view_recid'";
+     $result=mysqli_query($con,$query1);
 
-if($result && mysqli_num_rows($result) > 0)
+     if($result && mysqli_num_rows($result) > 0)
+	     $user_data = mysqli_fetch_assoc($result);
+     else 
+          echo"Some Error";
 
-	$user_data = mysqli_fetch_assoc($result);
-else 
-echo"Some Error";
 
-
-if($_SERVER['REQUEST_METHOD'] == "POST")
-{
-  $uid=$_SESSION['uid'];
-  $req_id=random_num(4);
-     if($_SESSION['acnt_type']=='b')
-          $requery = "INSERT INTO `astro_req`(`req_id`, `user1`, `user2`, `u1val`) VALUES ('$req_id','$uid','$view_uid','1')";
-     else
-          $requery = "INSERT INTO `astro_req`(`req_id`, `user1`, `user2`, `u2val`) VALUES ('$req_id','$view_uid','$uid','1')";
-     if($con->query($requery)){
-          header("Location: success.html");
+     if($_SERVER['REQUEST_METHOD'] == "POST"){
+          $uid=$_SESSION['uid'];
+          $req_id=random_num(4);
+          if($_SESSION['acnt_type']=='b')
+               $requery = "INSERT INTO `astro_req`(`req_id`, `user1`, `user2`, `u1val`) VALUES ('$req_id','$uid','$view_uid','1')";
+          else
+               $requery = "INSERT INTO `astro_req`(`req_id`, `user1`, `user2`, `u2val`) VALUES ('$req_id','$view_uid','$uid','1')";
+          if($con->query($requery)){
+               header("Location: success.html");
+          }
      }
-}
 
 ?>
 
@@ -287,4 +288,5 @@ https://templatemo.com/tm-574-mexant
    </footer>
 
 </body>
-</html> <?php } ?>
+</html> 
+<?php } ?>

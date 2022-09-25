@@ -71,7 +71,7 @@ https://templatemo.com/tm-574-mexant
                               </ul>
                           </li>
                           <!-- <li class="scroll-to-section"><a href="index.php">Testimonials</a></li> -->
-                          <li><a href="contact-us.html">Contact Support</a></li> 
+                          <li><a href="logout.php">Logout</a></li> 
                       </ul>        
                       <a class='menu-trigger'>
                           <span>Menu</span>
