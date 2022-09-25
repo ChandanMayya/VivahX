@@ -70,20 +70,17 @@ if($user_data['acnt_type']=='a' )
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li class="scroll-to-section"><a href="index.html">Home</a></li>
-                          <li class="scroll-to-section"><a href="index.html">Services</a></li>
+                          <li class="scroll-to-section"><a href="index.php">Home</a></li>
                           <li class="scroll-to-section"><a href="index.html">About</a></li>
                           <li class="has-sub">
                               <!-- <a href="javascript:void(0)">Pages</a> -->
                               <a href="feedback.html">Feedback</a>
                               <ul class="sub-menu">
                                   <li><a href="about-us.html">About Us</a></li>
-                                   <li><a href="our-services.html">Our Services</a></li> 
                                   <li><a href="contact-us.html">Contact Us</a></li>
                               </ul>
                           </li>
-                           <li class="scroll-to-section"><a href="index.html">Testimonials</a></li> 
-                            <li><a href="contact-us.html">Contact Support</a></li>   
+                            <li><a href="my_account.php">Account</a></li>
                            <!-- <li><a href="feedback.html">Feedback</a></li>   -->
                       </ul>        
                       <a class='menu-trigger'>

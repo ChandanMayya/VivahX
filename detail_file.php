@@ -43,7 +43,7 @@ $file_tmp3 = $_FILES['csv_file3']['tmp_name'];
 
 if ((move_uploaded_file($file_tmp, $target_dir.$file_name))&&(move_uploaded_file($file_tmp1, $target_dir.$file_name2))&&(move_uploaded_file($file_tmp2, $target_dir.$file_name3))&&(move_uploaded_file($file_tmp3, $target_dir.$file_name4))) {
     // echo "<h1>File Upload Success</h1>";
-    $sql="update details set face_photo='$file_name',body_photo='$file_name2',aadhar='$file_name2' where rec_id='$rec_id'";
+    $sql="update details set face_photo='$file_name',body_photo='$file_name2',aadhar='$file_name3' where rec_id='$rec_id'";
                 if($con->query($sql)===TRUE){
                   // echo("INSERTED to details");
 
@@ -149,22 +149,22 @@ else {
                 <div class="col col-lg-12">
                     <h5>Face Photo</h5>
                     <br>
-                    <input type="file" name="csv_file">
+                    <input type="file" name="csv_file" required>
                 </div><br><br>
                 <div class="col col-lg-12">
                     <h5>Body Photo</h5>
                     <br>
-                    <input type="file" name="csv_file1">
+                    <input type="file" name="csv_file1" required>
                 </div><br><br>  
                 <div class="col col-lg-12">
                     <h5>Jataka Photo</h5>
                     <br>
-                    <input type="file" name="csv_file3">
+                    <input type="file" name="csv_file3" required>
                 </div><br><br>
             <div class="col col-lg-12">
                     <h5>Document</h5>
                     <br>
-                    <input type="file" name="csv_file2">
+                    <input type="file" name="csv_file2" required>
                 </div><br><br>
                 
                 <input type="submit" name="submit"><br><br>

@@ -121,7 +121,7 @@
   <section class="services" id="listings">
     <div class="container">
       <div class="row">
-        <form action="" method="post"> <label for="inp">Enter the username displayed to view account: <input type="text" name="inp" id=""> <input  class="btn btn-success"  type="submit" value="View"> </label></form>
+        <form action="" method="post"> <label for="inp">Enter the username displayed to view account: <input type="text" name="inp" required> <input  class="btn btn-success"  type="submit" value="View"> </label></form>
       <?php 
       foreach($res as $i){
          $recid=$i['rec_id'];

@@ -107,7 +107,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                                   <li><a href="login.php">Login</a></li>
                               <!-- </ul> -->
                           <!-- </li> -->
-                          <!-- <li><a href="my_account.php">Hey <?php echo  $_SESSION['user_name']?> </a></li>  -->
+                          <!-- <li><a href="my_account.php">Hey <?php  // echo  $_SESSION['user_name']?> </a></li>  -->
                       </ul>        
                       <a class='menu-trigger'>
                           <span>Menu</span>
@@ -166,7 +166,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         <!-- <br><br> -->
         <div class="col-6">
         <label for="gender" class="form-label">Gender:<br>
-            <input type="radio" name="gender" id="bg" value="bg">Male<br>
+            <input type="radio" name="gender" id="bg" value="bg" required>Male<br>
             <input type="radio" name="gender" id="b" value="b">Female
         </label>
     </div>

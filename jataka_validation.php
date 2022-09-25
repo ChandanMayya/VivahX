@@ -6,6 +6,17 @@ include("connection.php");
 include("functions.php");
 
 $req_id=$_SESSION['validation_id'];
+
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{
+  if(isset($_POST['approve']))
+    $query3="update astro_req set validate='1' where req_id='$req_id'";
+  elseif(isset($_POST['deny']))
+    $query3="update astro_req set withheld='1' where req_id='$req_id'";
+  if($con->query($query3))
+    header("Location: success.html");
+}
+
 $query1="select * from astro_req where req_id='$req_id'";
 if($result=$con->query($query1)){
     $row=mysqli_fetch_assoc($result);
@@ -112,7 +123,16 @@ if($result=$con->query($query1)){
             <h3 style="color: #ffd3b7  ;">Boy's Jataka</h3><br>
             <img class="img-thumbnail iimg" src="./userupolads/document/<?php echo $row3['document'] ?>" alt=""></img>
         </div>
-    </div>
+    </div><center><br><br>
+    <div class="col col-lg-6">
+          <form action="" method="post">
+            <label for="inp" style="color:#ffd3b7;">Provide access to the website to this account by clicking the below button: 
+              <br><br>
+              <input type="submit" value="Approve" name="approve" class="btn btn-primary">&nbsp;&nbsp;
+              <input type="submit" value="Deny" name="deny" class="btn btn-danger" style="width:100px ;">
+            </label>
+          </form>
+        </div></center>
 </div>
   <div class="row">
         <div class="col-lg-12"><br><br>

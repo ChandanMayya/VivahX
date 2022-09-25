@@ -31,6 +31,11 @@
     $user_data = check_login($con);
     $user_id=$user_data['user_id'];
 
+    if($user_data['acnt_type']=='a' )
+      header("Location: admin.php");
+    if($user_data['acnt_type']!='as' )
+      header("Location: astro_home.php");
+
     if(!(check_verified($con,$user_id)))
         header("Location: accountverification.html");
   ?>

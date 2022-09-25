@@ -83,7 +83,7 @@ https://templatemo.com/tm-574-mexant
                               </ul>
                           </li>
                           <!-- <li class="scroll-to-section"><a href="index.html">Testimonials</a></li> -->
-                          <li><a href="contact-us.html">Contact Support</a></li> 
+                          <li><a href="logout.php">Logout</a></li> 
                       </ul>        
                       <a class='menu-trigger'>
                           <span>Menu</span>
@@ -119,8 +119,8 @@ https://templatemo.com/tm-574-mexant
             <table class="table table-light">
                 <tr>
                   <th>Record ID</th>
-                    <th>BOY</th>
                     <th>GIRL</th>
+                    <th>BOY</th>
                     <th>Validated</th>
                 </tr>
                 <?php foreach ($result as $i){ 

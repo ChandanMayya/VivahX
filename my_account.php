@@ -14,8 +14,7 @@ $query1="select *from details where rec_id='$rec_id'";
 $result=mysqli_query($con,$query1);
 if($result && mysqli_num_rows($result) > 0)
 	$user_data = mysqli_fetch_assoc($result);
-else 
-echo"Some Error";
+
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
@@ -46,7 +45,7 @@ if($_SESSION['acnt_type']=='b'){
      $query2="select * from astro_req where user1 = '$uid' and u1val=1";
      $query4="select * from astro_req where user1 = '$uid' and u1val=0";
      $query6="select * from astro_req where user1 ='$uid' and u1val=1 and u2val=1";
-}else{echo "Running";
+}else{
      $query2="select * from astro_req where user2 = '$uid' and u1val=0 and u2val=1" ;
      $query4="select * from astro_req where user2 = '$uid' and u1val=1";
      $query6="select * from astro_req where user2 = '$uid' and u1val=1 and u2val=1";
@@ -310,10 +309,12 @@ https://templatemo.com/tm-574-mexant
                                                   </td>
                                                   <td>
                                                        <?php 
-                                                            if($i['validate']==1)
+                                                            if($i['withheld']==1)
+                                                                 echo "Jataka matching failed";     
+                                                            else if($i['validate']==1)
                                                                  echo "Yes";  
                                                             else 
-                                                                 echo "No";
+                                                                 echo "Waiting";
                                                        ?>
                                                   </td>
                                              </tr>
@@ -390,10 +391,12 @@ https://templatemo.com/tm-574-mexant
                                                   </td>
                                                   <td>
                                                        <?php 
-                                                            if($i['validate']==1) 
-                                                                 echo"Yes"; 
-                                                            else 
-                                                                 echo "No";  
+                                                            if($i['withheld']==1)
+                                                            echo "Jataka matching failed";     
+                                                       else if($i['validate']==1)
+                                                            echo "Yes";  
+                                                       else 
+                                                            echo "Waiting"; 
                                                        ?>
                                                   </td>
                                              </tr>
@@ -402,7 +405,7 @@ https://templatemo.com/tm-574-mexant
                                    </table>
                                    <form action="" method="post">
                                         <label for="submit">Type the user name displayed in requests received to accept the request and pass it for validation
-                                             <input type="text" name="inpt_uname" id="">
+                                             <input type="text" name="inpt_uname" id="" required>
                                              <input type="submit" name="view" value="View" class="btn btn-primary">
                                              <input type="submit" value="Accept" name="accept" class="btn btn-success"><br>
                                             
