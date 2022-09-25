@@ -10,7 +10,7 @@ $user_data=check_login($con);
 if($user_data['acnt_type']!='a' )
   header("Location: login.php");
 
-  $query3="select * from user  where acnt_type!='a' and acnt_type='as'";
+  $query3="select * from user  where  acnt_type='as'";
   if(($res1=$con->query($query3))){
     
 ?>

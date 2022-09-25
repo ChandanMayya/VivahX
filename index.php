@@ -31,8 +31,8 @@
     $user_data = check_login($con);
     $user_id=$userdata['user_id'];
 
-    if(!(check_verified($con,$user_id)))
-        header("Location: accountverification.html");
+    //if(!(check_verified($con,$user_id)))
+      //  header("Location: accountverification.html");
   ?>
 
 <body>

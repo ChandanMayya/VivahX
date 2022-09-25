@@ -49,9 +49,11 @@ function random_num($length)
 }
 
 function  check_verified($con,$user_id){
-	$query2="select * from user where validate = '1' and user_id='$user_id'";
-	if(mysqli_num_rows($result=$con->query($query2))>0)
-		return true;
-	else
-		return false;
+	if(check_login($con)){
+		$query2="select * from user where validate = '1' and user_id='$user_id'";
+		if(mysqli_num_rows($result=$con->query($query2))>0)
+			return true;
+		else
+			return false;
+	}
 }

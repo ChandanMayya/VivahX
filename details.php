@@ -35,7 +35,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 $aphone=$_POST['aphone'];
                 $amail=$_POST['amail'];
                 $addr=$_POST['address'];
-                $height=$_POST['height'];  //$_POST['height'];
+                $height_ft=$_POST['height-ft'];  //$_POST['height'];
+                $height_in=$_POST['height-in'];
                 $weight=$_POST['weight'];
                 $comp=$_POST['compxn'];
                 $nakshatra=$_POST['nakshatra'];
@@ -58,7 +59,7 @@ $runquery1=$con->query($query1);
 if(mysqli_num_rows($runquery1) != 0){
     $row1=mysqli_fetch_assoc($runquery1);
     $rec_id=$row1['rec_id'];
-                $stmt4="UPDATE `details` SET `fname`='$fname',`minit`='$mname',`lname`='$lname',`phone`='$phone',`aphone`='$aphone',`aemail`='amail',`address`='$addr',`height`='$height',`weight`='$weight',`complexion`='$comp',`about`='$about',`profession`='$profsn',`earnings`='$salary',`requirement`='$requirement',`qualification`='$graduation' WHERE `rec_id`='$rec_id'";
+                $stmt4="UPDATE `details` SET `fname`='$fname',`minit`='$mname',`lname`='$lname',`phone`='$phone',`aphone`='$aphone',`aemail`='amail',`address`='$addr',`height_ft`='$height-ft',`height_in`='$height-in',`weight`='$weight',`complexion`='$comp',`about`='$about',`profession`='$profsn',`earnings`='$salary',`requirement`='$requirement',`qualification`='$graduation' WHERE `rec_id`='$rec_id'";
                         if($con->query($stmt4)===TRUE){
                             $jtk_id= random_num(4);
                             $query4="INSERT INTO `jaataka`(`jtk_id`, `gotra`, `DOB`, `paada`, `nakshatra`, `user_id`) VALUES ('$jtk_id','$gotra','$dob','$paada','$nakshatra','$user_id')";
@@ -173,7 +174,7 @@ if(mysqli_num_rows($runquery1) != 0){
                 <br>
                 <div class="col-12 col-md-12">
                     <label for="mname">Middle Name:
-                        <input type="text" name="mname" id="mname">
+                        <input type="text" name="mname" id="mname" required>
                     </label>
                 </div>
                 <br>
@@ -202,13 +203,13 @@ if(mysqli_num_rows($runquery1) != 0){
                 <br>
                 <div class="col-12">
                     <label for="amail">Alternate Mail Address:
-                        <input type="email" name="amail" id="amail">
+                        <input type="email" name="amail" id="amail" required>
                     </label>
                 </div>     
                 <br>
                 <div class="col-12">
                     <label for="address">Address:<br>
-                        <textarea name="address" id="address" cols="40" rows="3"></textarea>
+                        <textarea name="address" id="address" cols="40" rows="3" required></textarea>
                     </label>
                 </div> <br>
             </div>
@@ -217,15 +218,22 @@ if(mysqli_num_rows($runquery1) != 0){
                 <br>
                 <h5>PHYSIX</h5>
                 <br>
-                <div class="col-12 col-md-12 ">
-                    <label for="height">Height:
-                        <input type="text" name="height" id="height" required step="0.01">
+                <div class="row" ><center>
+                <div class="col-6 col-md-6 ">
+                    <label for="height">Height <br> <br> Feet:
+                        <input type="text" name="height-ft" id="height" placeholder="5 feet" required>
                     </label>
+                </div><br>
+                <div class="col-6 col-md-6 ">
+                    <label for="height">inches:
+                        <input type="text" name="height-in" id="height" placeholder="2 inches" required>
+                    </label>
+                </div></center>
                 </div>
                 <br>
                 <div class="col-12 col-md-12 ">
                     <label for="weight">Weight:
-                        <input type="text" name="weight" id="weight" required step="0.01">
+                        <input type="text" name="weight" id="weight" required>
                     </label>
                 </div>
                 <br>
@@ -243,7 +251,7 @@ if(mysqli_num_rows($runquery1) != 0){
                 <h5>Advanced Basics</h5>
                 <br>
                 <label for="nakshatra">Nakshatra:
-                    <select name="nakshatra" id="star">
+                    <select name="nakshatra" id="star" required>
                         <option value="ashwini">Ashwini</option>
                         <option value="bharani">Bharani</option>
                         <option value="krittika">Krittika</option>
@@ -275,15 +283,15 @@ if(mysqli_num_rows($runquery1) != 0){
                 </label>
                 <br><br>
                 <label for="paada">Paada:&nbsp;
-                    <input type="number" name="paada" id="paada" min="1" max="4">
+                    <input type="number" name="paada" id="paada" min="1" max="4" required>
                 </label>
                 <br><br>
                 <label for="gotra">Gotra:
-                    <input type="text" name="gotra" id="gotra">
+                    <input type="text" name="gotra" id="gotra" required>
                 </label>
                 <br><br>
                 <label for="dob">Birth Date:
-                    <input type="date" name="date" id="date" <?php if($acnt_type=='b'){ ?> max="2004-01-01" <?php }else{ ?>max="2001-01-01" <?php } ?>>
+                    <input type="date" name="date" id="date" required <?php if($acnt_type=='b'){ ?> max="2004-01-01" <?php }else{ ?>max="2001-01-01" <?php } ?>>
                 </label><br><br>
                 <br><br>
             </div><br>
@@ -291,34 +299,34 @@ if(mysqli_num_rows($runquery1) != 0){
                 <br>
                 <h5>Professional Details</h5><br>
                 <label for="grad">Top Graduation:
-                    <input type="text" name="grad" id="grad">
+                    <input type="text" name="grad" id="grad" required>
                 </label><br><br>
                 <label for="prof">Primary Profesison:
-                    <input type="text" name="prof" id="prof">
+                    <input type="text" name="prof" id="prof" required>
                 </label><br><br>
                 <label for="earn">Yearly Earnings:
-                    <input type="text" name="earn" id="earn" step="0.01">
+                    <input type="text" name="earn" id="earn" required>
                 </label><br><br>
             </div><br>
             <div class="form-control disp">
                 <br><h5>Family Details:</h5><br>
                 <label for="pa">Father Name:
-                    <input type="text" name="pa" id="pa">
+                    <input type="text" name="pa" id="pa" required>
                 </label><br><br>
                 <label for="paoccu">Father Occupation:
-                    <input type="text" name="paoccu" id="paoccu">
+                    <input type="text" name="paoccu" id="paoccu" required>
                 </label><br><br>
                 <label for="ma">Mother Name:
-                    <input type="text" name="ma" id="ma">
+                    <input type="text" name="ma" id="ma" required>
                 </label><br><br>
                 <label for="maoccu">Mother Occupation:
-                    <input type="text" name="maoccu" id="maoccu">
+                    <input type="text" name="maoccu" id="maoccu" required>
                 </label><br><br>
                 <label for="brono">Number of Brothers:
-                    <input type="number" name="brono" id="brono" min="0">
+                    <input type="number" name="brono" id="brono" min="0" required>
                 </label><br><br>
                 <label for="sisno">Number of Sisters:
-                    <input type="number" name="sisno" id="sisno" min="0">
+                    <input type="number" name="sisno" id="sisno" min="0" required>
                 </label><br><br>
             </div><br>
             <div class="form-control disp">
@@ -326,10 +334,10 @@ if(mysqli_num_rows($runquery1) != 0){
                 <h5>Other Details</h5><br>
                 <label for="about">Some words about yourself:
                     <br>
-                    <textarea name="about" id="about" cols="30" rows="4"></textarea>
+                    <textarea name="about" id="about" cols="30" rows="4" required></textarea>
                 </label><br><br>
                 <label for="req">Partner Requirements: <br>
-                    <textarea name="req" id="req" cols="30" rows="4"></textarea>
+                    <textarea name="req" id="req" cols="30" rows="4" required></textarea>
                 </label><br><br>
 
             </div>

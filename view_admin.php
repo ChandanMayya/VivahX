@@ -101,7 +101,7 @@ if($user_data['acnt_type']!='a' )
   <section class="top-section">
 
     <div class="container">
-      <h2 style="text-align:center">Astrologer Accounts</h2>
+      <h2 style="text-align:center">Admin Accounts</h2>
       <div class="row"><center>
         <div class="col-lg-9">
           <br>

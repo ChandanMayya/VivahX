@@ -17,8 +17,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
   header("Location: jataka_validation.php");
 }
 
-  $query="select * from astro_req";
-  if($result=$con->query($query)){
+$query="select * from astro_req";
+if($result=$con->query($query)){
    
 
 ?>
@@ -129,8 +129,8 @@ https://templatemo.com/tm-574-mexant
                      $query2="select uname from user where user_id='$uid1'";
                      $query3="select uname from user where user_id='$uid2'";
                      if(($res2=$con->query($query2))&&($res3=$con->query($query3)))
-                     $row2=mysqli_fetch_assoc($res2);
-                     $row3=mysqli_fetch_assoc($res3);
+                      $row2=mysqli_fetch_assoc($res2);
+                      $row3=mysqli_fetch_assoc($res3);
                 ?>
                 <tr>
                     <td><?php echo $i['req_id']  ?></td>
