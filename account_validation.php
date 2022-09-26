@@ -13,15 +13,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     $query3="update user set validate='1' where uname='$user_name'";
   elseif(isset($_POST['deny']))
     $query3="update user set withheld='1' where uname='$user_name'";
-  if($con->query($query3))
+  if($con->query($query3)){
+    $_SESSION['src']="ADMIN_URS_VAL";
     header("Location: success.html");
+  }
 }
 
 $query1="select rec_id from user where uname='$user_name'";
 if(mysqli_num_rows($result=$con->query($query1))>0){
     $row=mysqli_fetch_assoc($result);
     $rec_id=$row['rec_id'];
-    $query2="select aadhar from details where rec_id='$rec_id'";
+    $query2="select face_photo,aadhar from details where rec_id='$rec_id'";
     if($result2=$con->query($query2)){
         $row2=mysqli_fetch_assoc($result2);
 ?>
@@ -109,11 +111,14 @@ if(mysqli_num_rows($result=$con->query($query1))>0){
 <footer>
 
 <div class="container">
-    <div class="row"><center>
+    <div class="row">
         <div class="col col-lg-6">
             <h3 style="color: #ffd3b7  ;">Aadhar Card:</h3><br>
             <img class="img-thumbnail iimg" src="./userupolads/document/<?php echo $row2['aadhar'] ?>" alt=""></img>
-        </div><br>
+        </div><div class="col col-lg-6">
+            <h3 style="color: #ffd3b7  ;">Face Photo:</h3><br>
+            <img class="img-thumbnail iimg" src="./userupolads/document/<?php echo $row2['face_photo'] ?>" alt=""></img>
+        </div><br><center><br>
         <div class="col col-lg-6">
           <form action="" method="post">
             <label for="inp" style="color:#ffd3b7;">Provide access to the website to this account by clicking the below button: 
@@ -122,9 +127,9 @@ if(mysqli_num_rows($result=$con->query($query1))>0){
               <input type="submit" value="Deny" name="deny" class="btn btn-danger" style="width:100px ;">
             </label>
           </form>
-        </div>
+        </div></center>
     </div>
-</div></center>
+</div>
   <div class="row">
         <div class="col-lg-12"><br><br>
           <p>Copyright © 2022 Mexant Co., Ltd. All Rights Reserved. 
