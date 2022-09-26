@@ -14,14 +14,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
       $query = "SELECT validate,uname,user_id,acnt_type FROM user WHERE uname='$user_name' and password='$passwd' limit 1";
      
      $result=mysqli_query($con,$query);
-     if(mysqli_num_rows($result)==0){
+     if(mysqli_num_rows($result)!=1){
          $errormsg="Invalid Credentials....";
      }else{
-        $row = $result->fetch_assoc();
+        $row = mysqli_fetch_assoc($result);
         $_SESSION['user_name']=$user_name;
         $_SESSION['uid']=$row['user_id'];
         $_SESSION['acnt_type']=$row['acnt_type'];
-        //echo $_SESSION['uid'];
+        echo $_SESSION['uid'];
         switch($row['acnt_type']){
 
         case 'a': 
@@ -37,7 +37,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             if($row['validate']==0)
                 header("Location: details.php");
            else
-
                 header("Location: index.php");
         }
      }

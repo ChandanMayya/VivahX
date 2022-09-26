@@ -33,7 +33,7 @@
 
     if($user_data['acnt_type']=='a' )
       header("Location: admin.php");
-    if($user_data['acnt_type']!='as' )
+    if($user_data['acnt_type']=='as' )
       header("Location: astro_home.php");
 
     if(!(check_verified($con,$user_id)))
