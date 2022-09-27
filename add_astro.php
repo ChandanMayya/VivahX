@@ -59,7 +59,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="assets/css/poppins.css" rel="stylesheet">
 
     <title>VivahX</title>
 
@@ -72,7 +72,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <link rel="stylesheet" href="assets/css/templatemo-574-mexant.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/flex-slider.css">
 
   </head>
 
@@ -86,7 +86,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             <div class="col-12" class="col-sm-6">
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
+                      <a href="admin.php" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>
                       <!-- ***** Logo End ***** -->
@@ -104,7 +104,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                               </ul>
                           </li>
                           <!-- <li class="scroll-to-section"><a href="#testimonials">Testimonials</a></li> -->
-                          <li><a href="contact-us.html">Contact Support</a></li> 
+                          <li><a href="logout.php">Logout</a></li> 
                       </ul>        
                       <a class='menu-trigger'>
                           <span>Menu</span>

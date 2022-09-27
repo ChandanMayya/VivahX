@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     $query3="update user set withheld='1' where uname='$user_name'";
   if($con->query($query3)){
     $_SESSION['src']="ADMIN_URS_VAL";
-    header("Location: success.html");
+    header("Location: success.php");
   }
 }
 
@@ -36,7 +36,7 @@ if(mysqli_num_rows($result=$con->query($query1))>0){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="assets/css/poppins.css" rel="stylesheet">
 
     <title>Account Verification</title>
 
@@ -48,7 +48,7 @@ if(mysqli_num_rows($result=$con->query($query1))>0){
     <link rel="stylesheet" href="assets/css/templatemo-574-mexant.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
 <style>
     .iimg{
         width: 850px;
@@ -66,8 +66,8 @@ if(mysqli_num_rows($result=$con->query($query1))>0){
           <div class="row">
               <div class="col-12">
                   <nav class="main-nav">
-                      <!-- ***** Logo Start ***** 
-                      <a href="admin.html" class="logo">
+                      <!-- ***** Logo Start ***** -->
+                      <a href="admin.php" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>
                       <!-- ***** Logo End ***** -->
