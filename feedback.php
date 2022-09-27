@@ -39,7 +39,7 @@ if($user_data['acnt_type']=='a' )
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="assets/css/poppins.css" rel="stylesheet">
 
     <title>VivahX - Contact page</title>
 
@@ -51,7 +51,7 @@ if($user_data['acnt_type']=='a' )
     <link rel="stylesheet" href="assets/css/templatemo-574-mexant.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
   </head>
 
 <body>
@@ -64,22 +64,22 @@ if($user_data['acnt_type']=='a' )
               <div class="col-12">
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
+                      <a href="index.php" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
                           <li class="scroll-to-section"><a href="index.php">Home</a></li>
-                          <li class="scroll-to-section"><a href="index.html">About</a></li>
-                          <li class="has-sub">
+                          <!-- <li class="scroll-to-section"><a href="index.html">About</a></li> -->
+                          <!-- <li class="has-sub"> -->
                               <!-- <a href="javascript:void(0)">Pages</a> -->
-                              <a href="feedback.html">Feedback</a>
-                              <ul class="sub-menu">
+                              
+                              <!-- <ul class="sub-menu"> -->
                                   <li><a href="about-us.html">About Us</a></li>
                                   <li><a href="contact-us.html">Contact Us</a></li>
-                              </ul>
-                          </li>
+                              <!-- </ul> -->
+                          <!-- </li> -->
                             <li><a href="my_account.php">Account</a></li>
                            <!-- <li><a href="feedback.html">Feedback</a></li>   -->
                       </ul>        
@@ -142,7 +142,7 @@ if($user_data['acnt_type']=='a' )
         <div class="col-lg-12">
           <p>Copyright © 2022 vivahX Co., Ltd. All Rights Reserved. 
           
-          <br>Designed by <a title="CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">Parinaya</a></p>
+          <br>Designed by <a href="#">Parinaya</a></p>
         </div>
       </div>
     </div>

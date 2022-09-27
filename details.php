@@ -89,7 +89,7 @@ if(mysqli_num_rows($runquery1) != 0){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="assets/css/poppins.css" rel="stylesheet">
 
     <title>Details</title>
 
@@ -101,7 +101,7 @@ if(mysqli_num_rows($runquery1) != 0){
     <link rel="stylesheet" href="assets/css/templatemo-574-mexant.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
     <!--link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     -->
@@ -117,15 +117,15 @@ if(mysqli_num_rows($runquery1) != 0){
               <div class="col-12">
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
-                         <!-- <img src="assets/images/logo.png" alt="">
+                      <a href="index.php" class="logo">
+                          <img src="assets/images/logo.png" alt="">
                       </a>
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li class="scroll-to-section"><a href="index.html">Home</a></li>
-                          <li class="scroll-to-section"><a href="index.html">Services</a></li>
-                          <li class="scroll-to-section"><a href="index.html">About</a></li>
+                          <!--<li class="scroll-to-section"><a href="index.html">Home</a></li>
+                          <li class="scroll-to-section"><a href="index.html">Services</a></li>-->
+                          <!-- <li class="scroll-to-section"><a href="index.html">About</a></li> -->
                           <li class="has-sub">
                               <a href="javascript:void(0)">Pages</a>
                               <ul class="sub-menu">
@@ -134,7 +134,7 @@ if(mysqli_num_rows($runquery1) != 0){
                                   <li><a href="contact-us.html">Contact Us</a></li>
                               </ul>
                           </li>
-                          <li class="scroll-to-section"><a href="index.html">Testimonials</a></li>
+                          <!-- <li class="scroll-to-section"><a href="index.html">Testimonials</a></li> -->
                           <li><a href="#"><?php echo "$_SESSION[user_name]";?></a></li> 
                       </ul>        
                       <a class='menu-trigger'>
