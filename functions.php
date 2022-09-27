@@ -13,7 +13,7 @@ function check_login($con)
 		{
 			$user_data = mysqli_fetch_assoc($result);
 			 if($user_data['withheld']==1)
-			 	header("Location: withheld.php");
+			 	header("Location: accountwithheld.html");
 			else
 				return $user_data;
 		}
@@ -22,7 +22,7 @@ function check_login($con)
 	//redirect to login
 	header("Location: login.php");
 	die;
-
+	
 }
 
 function random_num($length)

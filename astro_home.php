@@ -64,8 +64,8 @@ if($result=$con->query($query)){
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
                           <li class="scroll-to-section"><a href="index.html">Home</a></li>
-                          <li class="scroll-to-section"><a href="index.html">Services</a></li>
-                          <li class="scroll-to-section"><a href="index.html">About</a></li>
+                          <!-- <li class="scroll-to-section"><a href="index.html">Services</a></li> -->
+                          <!-- <li class="scroll-to-section"><a href="index.html">About</a></li> -->
                           <li class="has-sub">
                               <a href="javascript:void(0)">Pages</a>
                               <ul class="sub-menu">
@@ -138,7 +138,7 @@ if($result=$con->query($query)){
                 <input type="text" name="inp-req-id" id="">
                 <input type="submit" value="Open">
             </form>
-       
+       <br><br>
 
       <div class="row">
         <div class="col-lg-12">

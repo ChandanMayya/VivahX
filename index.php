@@ -64,7 +64,7 @@
                               <ul class="sub-menu">
                                   <li><a href="about-us.html">About Us</a></li>
                                   <li><a href="contact-us.html">Contact Us</a></li>
-                                  <li><a href="feedback.html">Feedback</a></li>
+                                  <li><a href="feedback.php">Feedback</a></li>
                               </ul>
                           </li>
                           <li><a href="my_account.php">Hey <?php echo  $_SESSION['user_name']?> </a></li> 
@@ -114,7 +114,7 @@
                 <div class="header-text">
                   <h2>With the power of our<br>everlasting <em>traditions</em></h2>
                   <div class="div-dec"></div>
-                  <p>You will see a bunch of free CSS templates when you search on Google. TemplateMo website is probably the best one because it is 100% free. It does not ask you anything in return. You have a total freedom to use any template for any purpose.</p>
+                  <p>The online platform where people can find their life partners, easily while valuing the traditions of the sanathan culture!</p>
                   <div class="buttons">
                     <div class="green-button">
                       <a href="contact-us.html">Contact Us</a>

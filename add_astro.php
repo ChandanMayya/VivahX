@@ -76,12 +76,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
   </head>
 
+  <style>
+        .cardi{
+            background: linear-gradient(to bottom right, #ffffff 0%, #ffcc66 100%);
+
+        }
+        .cardi_base{
+            border: 2px solid #ff6600;
+            background-color: #e6e6e6;
+        }
+        .errormsg{
+          color:orangered;
+        }
+    </style>
 <body>
 
 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
       <div class="container">
+        
           <div class="row">
             <div class="col-12" class="col-sm-6">
                   <nav class="main-nav">
@@ -122,7 +136,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
       <div class="row">
         <div class="col-lg-12">
           <div class="header-text">
-            <h2> Astrologer</h2>
+            <h2>Add Astrologer</h2>
             <div class="div-dec"></div>
           </div>
         </div>
@@ -134,9 +148,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
   <div class="page-container" class="col-6" class="col-sm-12">
     <!-- <div class="col-6" class="col-sm-12"> -->
         
-        <br><br><br><br><br><br> 
+        <br><br><br><br>
+        <div class="cardi container form-control"><br><br> 
     <h1> Add Astrologer</h1>
     <br>
+    
     <form class="from-group"  method="post" action="#">
         <div class="col-6">
         <label for="username" class="form-label">User Name:
@@ -158,12 +174,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         <!-- <br><br> -->
    
         <!-- <br><br> -->
-        <!-- <br><br>     -->
+        <!-- <br><br>     --> <br>
+        <div class="cardi_base rounded-bottom"><br>
         <span id="error_msg"></span> 
         <input type="reset" value="Reset" class="btn btn-danger"> 
-        <input type="submit" class="btn btn-success"value="Submit">
-       
+        <input type="submit" class="btn btn-success"value="Submit"><br>
+       <br></div><br>
     </form>
+    </div>
     </center> 
     </div>
 </div>

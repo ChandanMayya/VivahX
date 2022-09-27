@@ -107,12 +107,21 @@ if($user_data['acnt_type']!='a' )
           <table class="table table-striped table-bordered table-hover">
             <tr class="table-primary">
               <th class="thead">Feedback ID</th>
+              <th class="thead">Email ID</th>
               <th class="thead">Subject</th>
               <th class="thead">Content</th>
+              
             </tr>
-            <?php foreach($res1 as $i){ ?>
+            <?php foreach($res1 as $i){ 
+              $uid=$i['user_id'];
+              $query2="select email from user where user_id='$uid'";
+              $res2=$con->query($query2);
+              $row=mysqli_fetch_assoc($res2);
+              ?>
             <tr>
+
               <td><?php echo $i['feed_id'] ?></td>
+              <td><?php echo $row['email'] ?></td>
               <td><?php echo $i['title'] ?></td>
               <td><?php echo $i['content'] ?></td>
             </tr><?php } ?>
@@ -137,7 +146,7 @@ if($user_data['acnt_type']!='a' )
       </div>
     </div>
   </footer>
-  
+
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>

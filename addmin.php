@@ -72,6 +72,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/swiper.min.css">
 
+    <style>
+        .cardi{
+            background: linear-gradient(to bottom right, #ffffff 0%, #ffcc66 100%);
+
+        }
+        .cardi_base{
+            border: 2px solid #ff6600;
+            background-color: #e6e6e6;
+        }
+        .errormsg{
+          color:orangered;
+        }
+    </style>
+
   </head>
 
 <body>
@@ -120,7 +134,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
       <div class="row">
         <div class="col-lg-12">
           <div class="header-text">
-            <h2> Admin</h2>
+            <h2>Add Admin</h2>
             <div class="div-dec"></div>
           </div>
         </div>
@@ -132,7 +146,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
   <div class="page-container" class="col-6" class="col-sm-12">
     <!-- <div class="col-6" class="col-sm-12"> -->
         
-        <br><br><br><br><br><br> 
+        <br><br><br><br>
+        <div class="cardi container form-control"><br><br> 
     <h1> Add Admin</h1>
     <br>
     <form class="from-group"  method="post" action="#">
@@ -156,12 +171,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         <!-- <br><br> -->
    
         <!-- <br><br> -->
-        <!-- <br><br>     -->
+        <!-- <br><br>     --> <br>
+        <div class="cardi_base rounded-bottom"><br>
         <span id="error_msg"></span> 
         <input type="reset" value="Reset" class="btn btn-danger"> 
-        <input type="submit" class="btn btn-success"value="Submit">
-       
-    </form>
+        <input type="submit" class="btn btn-success"value="Submit"><br><br>
+        </div>
+    </form><br>
+        </div>
     </center> 
     </div>
 </div>

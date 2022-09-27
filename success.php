@@ -93,30 +93,35 @@ error_reporting(0);
 
     <div class="container">
       <br>
-      <h1 style="text-align:center;">Woohoo!</h1>
+      <!--<h1 style="text-align:center;">Woohoo!</h1>-->
       <center> 
       <div class="imgcontainer">
         <img src="assets/images/yes.png" alt="Avatar" style=" width:30%;" id="grn">
       </div>
-      </center>
+      
     
       <?php if($_SESSION['src']=="ADMIN_URS_VAL"){  ?>
         <h3> The account hav been added Successfuly!</h3>
         <br>
         <label for="btn">Click below button to move to dashboard:
+          <br><br>
           <a href="admin.php">
             <input type="button" value="ADMIN DASHBOARD">
           </a>
         </label>
-      <?php }elseif($_SESSION['src']=="Something"){?>
-      
-      
-
-
+      <?php }elseif($_SESSION['src']=="request"){?>
+        <h3> The request has been sent Successfuly!</h3>
+        <br>
+        <label for="btn">Click below button to view your requests
+          <br><br>         
+          <a href="my_account.php">
+            <input type="button" class="btn btn-success" value="ACCOUNT">
+          </a>
+        </label>
       <?php } ?>
                 
 
-      
+      </center>
     </div>
 
   <!-- FOOTER -->

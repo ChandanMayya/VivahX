@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
   elseif(isset($_POST['deny']))
     $query3="update astro_req set withheld='1' where req_id='$req_id'";
   if($con->query($query3))
-    header("Location: success.html");
+     header("Location: astro_home.php ");
 }
 
 $query1="select * from astro_req where req_id='$req_id'";
@@ -131,7 +131,7 @@ if($result=$con->query($query1)){
             </label>
           </form>
         </div></center>
-</div>
+</div><br><br>
 <div class="row">
         <div class="col-lg-12">
           <p>Copyright © 2022 vivahX Co., Ltd. All Rights Reserved. 

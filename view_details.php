@@ -30,7 +30,8 @@ if($result=$con->query($conversionquery)){
           else
                $requery = "INSERT INTO `astro_req`(`req_id`, `user1`, `user2`, `u2val`) VALUES ('$req_id','$view_uid','$uid','1')";
           if($con->query($requery)){
-               header("Location: success.html");
+               $_SESSION['src']="request";
+               header("Location: success.php");
           }
      }
 
@@ -66,7 +67,7 @@ if($result=$con->query($conversionquery)){
      h2{
           text-align:center;
      }
-     img{
+     .imgg{
           width: 500px;
      }
 </style>
@@ -209,14 +210,14 @@ if($result=$con->query($conversionquery)){
                                    <h6>Face Photo</h6>
                                    <p>
                                    <div class="col col-lg-6">
-                                   <img class="img-thumbnail" src="./userupolads/document/<?php echo $user_data['face_photo'] ?>" alt=""></img>
+                                   <img class="img-thumbnail imgg" src="./userupolads/document/<?php echo $user_data['face_photo'] ?>" alt=""></img>
                                    </p> </div>
                                         <br>
                                    <div class="panel-body">
                                    <h6>Body Photo</h6>
                                    <p>
                                    <div class="col col-lg-6">
-                                   <img class="img-thumbnail" src="./userupolads/document/<?php echo $user_data['body_photo'] ?>" alt=""></img>
+                                   <img class="img-thumbnail imgg" src="./userupolads/document/<?php echo $user_data['body_photo'] ?>" alt=""></img>
                                    </p> </div>
                                         <br>
                          </div>

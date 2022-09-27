@@ -5,13 +5,17 @@ session_start();
 include("connection.php");
 include("functions.php");
 
-$user_data=check_login($con);
-$user_id=$userdata['user_id'];
+$errormsg = "Feel free to message us";
 
-    if(!(check_verified($con,$user_id)))
-        header("Location: accountverification.html");
-if(isset($_SESSION['feed']))
-  echo"Feedback Sent!";
+$user_data=check_login($con);
+$user_id=$user_data['user_id'];
+
+if(!(check_verified($con,$user_id)))
+header("Location: accountverification.html");
+if($_SESSION['feed']==1)
+{  $errormsg = "Feedback Sent!";
+  $_SESSION['feed']=0;
+}
 
 if($user_data['acnt_type']=='a' )
   header("Location: login.php");
@@ -103,7 +107,7 @@ if($user_data['acnt_type']=='a' )
             <div class="div-dec"></div>
           </div>
         </div>
-      </div><br><h5 style="color: #ffd3b7;">Feel free to message us</h5>
+      </div><br><h5 style="color: #ffd3b7;"><?php echo $errormsg; ?></h5>
     </div>
   </div>
 
