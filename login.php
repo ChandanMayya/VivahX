@@ -88,7 +88,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
               <div class="col-12">
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
+                      <a href="index.php" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>
                       <!-- ***** Logo End ***** -->
@@ -105,7 +105,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                                   <li><a href="signup.php">Create Account</a></li>
                               <!-- </ul> -->
                           <!-- </li> -->
-                          <!-- <li><a href="my_account.php">Hey <?php echo  $_SESSION['user_name']?> </a></li>  -->
+                          <!-- <li><a href="my_account.php">Hey <?php // echo  $_SESSION['user_name']?> </a></li>  -->
                       </ul>        
                       <a class='menu-trigger'>
                           <span>Menu</span>

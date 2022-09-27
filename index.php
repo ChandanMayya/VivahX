@@ -64,6 +64,7 @@
                               <ul class="sub-menu">
                                   <li><a href="about-us.html">About Us</a></li>
                                   <li><a href="contact-us.html">Contact Us</a></li>
+                                  <li><a href="feedback.html">Feedback</a></li>
                               </ul>
                           </li>
                           <li><a href="my_account.php">Hey <?php echo  $_SESSION['user_name']?> </a></li> 
@@ -164,11 +165,11 @@
 
   <footer>
     <div class="container">
-      <div class="row">
+    <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2022 Mexant Co., Ltd. All Rights Reserved. 
+          <p>Copyright © 2022 vivahX Co., Ltd. All Rights Reserved. 
           
-          <br>Designed by <a title="CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+          <br>Designed by <a href="#">Parinaya</a></p>
         </div>
       </div>
     </div>

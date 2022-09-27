@@ -62,7 +62,7 @@ if(($result2=$con->query($query2))&&($result4=$con->query($query4))&&($result6=$
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="assets/css/poppins.css" rel="stylesheet">
 
     <title>My Account</title>
 
@@ -74,14 +74,8 @@ if(($result2=$con->query($query2))&&($result4=$con->query($query4))&&($result6=$
     <link rel="stylesheet" href="assets/css/templatemo-574-mexant.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-<!--
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
 
-TemplateMo 574 Mexant
-
-https://templatemo.com/tm-574-mexant
-
--->
 <style>
      p{
           padding-left: 100px;
@@ -100,11 +94,11 @@ https://templatemo.com/tm-574-mexant
               <div class="row">
                   <div class="col-12">
                       <nav class="main-nav">
-                          <!-- ***** Logo Start ***** 
-                          <a href="index.html" class="logo">
+                          <!-- ***** Logo Start *****  -->
+                          <a href="index.php" class="logo">
                               <img src="assets/images/logo.png" alt="">
                           </a>
-                           ***** Logo End ***** -->
+                          <!-- ***** Logo End ***** -->
                           <!-- ***** Menu Start ***** -->
                           <ul class="nav">
                               <li class="scroll-to-section"><a href="index.php">Home</a></li>
@@ -113,9 +107,10 @@ https://templatemo.com/tm-574-mexant
                               <li class="has-sub">
                                   <a href="javascript:void(0)">Pages</a>
                                   <ul class="sub-menu">
-                                      <li><a href="about-us.html">About Us</a></li>
+                                      <!-- <li><a href="about-us.html">About Us</a></li> -->
                                       <!-- <li><a href="our-services.html">Our Services</a></li> -->
                                       <li><a href="contact-us.html">Contact Us</a></li>
+                                      <li><a href="feedback.html">Feedback</a></li>
                                       
                                   </ul>
                                   <li><a href="logout.php">Logout</a></li>
