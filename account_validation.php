@@ -80,10 +80,10 @@ if(mysqli_num_rows($result=$con->query($query1))>0){
                               <ul class="sub-menu">
                                   <li><a href="about-us.html">About Us</a></li>
                                   <li><a href="contact-us.html">Contact Us</a></li>
-                                  <li><a href="feedback.php">FeedBack</a></li>
+                                  <!-- <li><a href="feedback.php">FeedBack</a></li> -->
                               </ul>
                           </li>
-                          <li><a href="contact-us.html">Contact Support</a></li> 
+                          <li><a href="logout.php">Logout</a></li> 
                       </ul>        
                       <a class='menu-trigger'>
                           <span>Menu</span>

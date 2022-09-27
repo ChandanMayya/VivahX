@@ -72,6 +72,7 @@ if($result=$con->query($query)){
                                   <li><a href="about-us.html">About Us</a></li>
                                   <!-- <li><a href="our-services.html">Our Services</a></li> -->
                                   <li><a href="contact-us.html">Contact Us</a></li>
+                                  <li><a href="feedback.php">Feedback</a></li>
                               </ul>
                           </li>
                           <!-- <li class="scroll-to-section"><a href="index.html">Testimonials</a></li> -->
@@ -139,15 +140,15 @@ if($result=$con->query($query)){
             </form>
        
 
-    <div class="row">
-        <div class="col-lg-12"><br><br>
-          <p>Copyright © 2022 Mexant Co., Ltd. All Rights Reserved. 
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2022 VivahX Co., Ltd. All Rights Reserved. 
           
-          <br>Designed by <a title="CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+          <br>Designed by <a href="#">Parinaya</a></p>
         </div>
       </div>
+    </div>
   </footer>
-
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>

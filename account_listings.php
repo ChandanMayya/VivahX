@@ -88,10 +88,11 @@
                                   <li><a href="about-us.html">About Us</a></li>
                                   <!-- <li><a href="our-services.html">Our Services</a></li> -->
                                   <li><a href="contact-us.html">Contact Us</a></li>
+                                  <li><a href="feedback.php">Feedback</a></li>
                               </ul>
                           </li>
                           <!-- <li class="scroll-to-section"><a href="index.html">Testimonials</a></li> -->
-                          <li><a href="contact-us.html">Contact Support</a></li> 
+                          <li><a href="my_account.php">Account</a></li> 
                       </ul>        
                       <a class='menu-trigger'>
                           <span>Menu</span>

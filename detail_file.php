@@ -70,7 +70,7 @@ else {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="assets/css/poppins.css" rel="stylesheet">
 
     <title>VivahX - Contact page</title>
 
@@ -82,7 +82,7 @@ else {
     <link rel="stylesheet" href="assets/css/templatemo-574-mexant.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
   </head>
 
 <body>
@@ -95,23 +95,14 @@ else {
               <div class="col-12">
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
+                      <a href="index.php" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li class="scroll-to-section"><a href="index.html">Home</a></li>
-                          <li class="scroll-to-section"><a href="index.html">Services</a></li>
                           <li class="scroll-to-section"><a href="index.html">About</a></li>
-                          <li class="has-sub">
-                              <!-- <a href="javascript:void(0)">Pages</a> -->
-                              <a href="feedback.html">Details</a>
-                              <ul class="sub-menu">
-                                <li><a href="contact-us.html">Contact Us</a></li>
-                              </ul>
-                          </li>
-                            <li><a href="contact-us.html">Contact Support</a></li>   
+                                <li><a href="contact-us.html">Contact Us</a></li> 
                            <!-- <li><a href="feedback.html">Feedback</a></li>   -->
                       </ul>        
                       <a class='menu-trigger'>
