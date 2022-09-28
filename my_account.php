@@ -373,7 +373,7 @@ if(($result2=$con->query($query2))&&($result4=$con->query($query4))&&($result6=$
                                                   <td>
                                                        <?php 
                                                             if($_SESSION['acnt_type']=='b')   
-                                                                 if($i['u2val']==1)
+                                                                 if($i['u1val']==1)
                                                                       echo "Yes";
                                                                  else
                                                                       echo "No";

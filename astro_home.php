@@ -57,13 +57,13 @@ if($result=$con->query($query)){
               <div class="col-12">
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
-                      <a href="admin.html" class="logo">
+                      <a href="index.php" class="logo">
                           <img src="assets/images/logo.png" alt="">
                       </a>
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li class="scroll-to-section"><a href="index.html">Home</a></li>
+                          <li class="scroll-to-section"><a href="index.php">Home</a></li>
                           <!-- <li class="scroll-to-section"><a href="index.html">Services</a></li> -->
                           <!-- <li class="scroll-to-section"><a href="index.html">About</a></li> -->
                           <li class="has-sub">
@@ -134,14 +134,14 @@ if($result=$con->query($query)){
                 <?php } ?>
             </table>
             </div>
-            <form action="" method="POST">
-                <input type="text" name="inp-req-id" id="">
-                <input type="submit" value="Open">
+            <form action="" method="POST"><br>
+                <input type="text" name="inp-req-id" id=""placeholder="Record ID to open">
+                <input type="submit" value="Open" class="btn btn-success">
             </form>
        <br><br>
 
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12"><br>
           <p>Copyright © 2022 VivahX Co., Ltd. All Rights Reserved. 
           
           <br>Designed by <a href="#">Parinaya</a></p>

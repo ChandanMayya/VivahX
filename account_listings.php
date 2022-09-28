@@ -12,7 +12,7 @@
     if(!(check_verified($con,$user_id)))
         header("Location: accountverification.html");
     
-    $query="select uname,rec_id,email from user where acnt_type NOT IN ('$acnt_type','a','as')";
+    $query="select uname,rec_id,email from user where acnt_type NOT IN ('$acnt_type','a','as') and validate = '1' and withheld = '0'";
     
     if($res=$con->query($query)){
        //$query2="select * from details where rec_id=$i[rec_id]";
