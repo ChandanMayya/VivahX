@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2022 at 12:57 PM
+-- Generation Time: Sep 28, 2022 at 02:07 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -42,8 +42,7 @@ CREATE TABLE `astro_req` (
 --
 
 INSERT INTO `astro_req` (`req_id`, `user1`, `user2`, `u1val`, `u2val`, `validate`, `withheld`) VALUES
-('2220', '7845', '1274', 1, 1, 1, 0),
-('7030', '7845', '1274', 1, 0, 0, 1);
+('6645', '5970', '2942', 1, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -79,11 +78,11 @@ CREATE TABLE `details` (
 --
 
 INSERT INTO `details` (`rec_id`, `fname`, `minit`, `lname`, `phone`, `aphone`, `aemail`, `address`, `height_ft`, `height_in`, `weight`, `complexion`, `face_photo`, `body_photo`, `about`, `profession`, `earnings`, `requirement`, `aadhar`, `qualification`) VALUES
-('2431', '', '', '', 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
-('3247', 'Sulochana', 'prema', 'Shekhara', 987568696, 2147483647, 'amail', 'Keshava priya, Kumara layout, Keshava city, bharata rashtra', '-ft', '-in', '45', 'Brown', '2020-04-15 (1).png', '2020-05-25 (1).png', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod nulla, aperiam alias consequatur maxime explicabo ipsum porro quis unde praesentium recusandae illum deleniti. Aut voluptatibus tempora fugit sunt ducimus ea.', 'Tester', '540000', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod nulla, aperiam alias consequatur maxime explicabo ipsum porro quis unde praesentium recusandae illum deleniti. Aut voluptatibus tempora fugit sunt ducimus ea.', '2020-05-25 (1).png', 'BCA'),
-('4567', '', '', '', 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
-('6816', '', '', '', 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL),
-('7850', 'Keshava', 'priya', 'Madhusudhana', 2147483647, 2147483647, 'amail', 'Shakthi nilaya, Kumara layout, Keshava City, Bharatha Rashtra', '-ft', '-in', '56', 'Brown', '2020-08-05 (3).png', '2020-08-05 (5).png', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod nulla, aperiam alias consequatur maxime explicabo ipsum porro quis unde praesentium recusandae illum deleniti. Aut voluptatibus tempora fugit sunt ducimus ea.', 'Developer', '560000', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod nulla, aperiam alias consequatur maxime explicabo ipsum porro quis unde praesentium recusandae illum deleniti. Aut voluptatibus tempora fugit sunt ducimus ea.', '2020-08-05 (5).png', 'BE Computer Science');
+('0642', 'Praveen', 'prasanna', 'gauda', 896633668, 2147483647, 'amail', 'Praveen P Gauda, Gopal layut, kohlapura, kumara parva', '5', '5', '56', 'Semi Brown', 'praveenaf.jpg', 'praveenab.jpg', 'Being born in a vokkaliga gauda family, i am passionate towards lots of things, now that im seraching for my partner!', 'Developer', '600000', 'Good and matching to me', 'A_sample_of_Aadhaar_card.jpg', 'BE Computer Science'),
+('0844', 'Keshava', 'maharaja', 'Suprasada Adiga', 2147483647, 2147483647, 'amail', 'Keshava M S P Adiga, Adiga house, Mahesha nagara, Bengre kopa, Atramule, Manja', '5', '9', '70', 'white', 'keshava.jpg', 'keshava2.jpg', 'I belong to a brahmin family, kota brahmin to be precise. I am passionate towards bike riding to long distances, and i own 15 acres of fertile land cultivated with various types of crops', 'Professor', '700000', 'Good and adjustable', 'A_sample_of_Aadhaar_card.jpg', 'MCom'),
+('4479', 'Namrutha', 'nayana ', 'gauda', 855577885, 2147483647, 'amail', 'namrutha gauda, kumaralli, sankad katte, kottige male, sampre', '5', '4', '50', 'Brown', 'namruthaf.jpg', 'namruthab.jpg', 'Happy life', 'Tester', '550000', 'happy and dependable', 'A_sample_of_Aadhaar_card.jpg', 'BSC Cs'),
+('6205', 'Sukumari', 's ', 'Hegde', 2147483647, 2147483647, 'amail', 'Bhavana krupa, bandar katte, botwala, sampa', '5', '2', '48', 'Semi Brown', 'sukumarif.jpg', 'sukumarib.jpg', 'Kind hearted', 'book stall', '200000 ', 'understanding', 'A_sample_of_Aadhaar_card.jpg', 'BCom'),
+('6816', '', '', '', 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -107,9 +106,10 @@ CREATE TABLE `family` (
 --
 
 INSERT INTO `family` (`family_id`, `father`, `mother`, `fa_occu`, `mo_occu`, `bro_no`, `sis_no`, `user_id`) VALUES
-('4552', '', ' ', '', '', 0, 0, '1274'),
-('7324', 'Vasudeva', 'Devaki ', 'Govt. Officer', 'House wife', 6, 0, '1274'),
-('9788', 'Premashekhara', 'Prameela ', 'News Agency', 'house wife', 0, 0, '7845');
+('2286', 'Mahendra Suprasada Adiga', 'Veena Adiga ', 'Teacher', 'Teacher', 1, 0, '2942'),
+('3106', 'Vigneshwara Hegde', 'Sukanya Hegde ', 'Agriculturist', 'teacher', 0, 0, '5970'),
+('6646', 'NArayana gauda', 'Kaveri ', 'lawyer', 'house wife', 0, 0, '6686'),
+('8307', 'Sankappa Gauda', 'Puvamma Gauda ', 'Agriculture', 'house wife', 2, 0, '2761');
 
 -- --------------------------------------------------------
 
@@ -145,9 +145,10 @@ CREATE TABLE `jaataka` (
 --
 
 INSERT INTO `jaataka` (`jtk_id`, `gotra`, `DOB`, `paada`, `nakshatra`, `user_id`, `document`) VALUES
-('2357', '', '0000-00-00', 0, 'ashwini', '1274', '2020-05-27 (1).png'),
-('4102', 'vathsa', '2003-02-02', 3, 'ashwini', '7845', '2020-04-04.png'),
-('5142', 'vashista', '2000-02-02', 4, 'mrigashirsha', '1274', '2020-05-27 (1).png');
+('0800', 'Shanka pingal Kamsha', '1998-10-25', 1, 'krittika', '2761', 'jatakasample.jpg'),
+('2771', 'vishvamita', '1999-03-01', 2, 'pushya', '5970', 'jatakasample.jpg'),
+('6697', 'vashista', '1995-10-02', 2, 'ashwini', '2942', 'jatakasample.jpg'),
+('7846', 'vathsa', '2000-02-12', 2, 'mrigashirsha', '6686', 'jatakasample.jpg');
 
 -- --------------------------------------------------------
 
@@ -172,12 +173,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `uname`, `password`, `acnt_type`, `validate`, `rec_id`, `email`, `details`, `withheld`) VALUES
-('0066', 'pushpalatha', 'push123', '', 0, '4567', 'push@gmail.com', 0, 0),
 ('1000', 'admin', 'admin', 'a', 1, NULL, '', 0, 0),
-('1274', 'keshava', 'kes123', 'bg', 1, '7850', 'keshava@gmail.com', 0, 0),
 ('1671', 'Purushothama', 'puru123', 'as', 0, '6816', 'purushothama@gmail.com', 0, 0),
-('3158', 'dakshyayini', 'dak123', 'b', 0, '2431', 'dakshyayini@gmail.com', 0, 0),
-('7845', 'sulochana', 'sulo123', 'b', 1, '3247', 'sulochana@gmail.com', 0, 0);
+('2761', 'praveen', 'pra123', 'bg', 0, '0642', 'praveengauda@gmail.com', 0, 0),
+('2942', 'keshava', 'kes123', 'bg', 1, '0844', 'keshava@gmail.com', 0, 0),
+('5970', 'Sukumari', 'suk123', 'b', 1, '6205', 'sukku1213@gmail.com', 0, 0),
+('6686', 'namrutha', 'nam123', 'b', 0, '4479', 'namruthaa@gmail.com', 0, 0);
 
 --
 -- Indexes for dumped tables
